@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './views/Home/Home';
 import Auth from './views/Auth/Auth';
 import AboutUs from './views/About/AboutUs';
+import Main from './views/Main/Main';
+import ConfirmEmail from './views/Confirm/Confirm'
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -15,6 +17,12 @@ function App() {
       </Route>
       <Route exact path='/login'>
         <Auth />
+      </Route>
+      <Route path='/confirm'>
+        <ConfirmEmail />
+      </Route>
+      <Route exact path='/main'>
+        <Main />
       </Route>
       <Route exact path='/about'>
         <AboutUs/>

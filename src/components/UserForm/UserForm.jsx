@@ -18,9 +18,9 @@ export default function UserForm({
     const { email, password } = formState;
 
     try {
-      if (!email || password.length < 8)
+      if (!email || password.length < 6)
         throw new Error(
-          'An email and password (with 8+ characters) are required.'
+          'An email and password (with 6+ characters) are required.'
         );
       setLoading(true);
       await onSubmit(email, password);
