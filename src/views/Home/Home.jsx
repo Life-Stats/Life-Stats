@@ -15,15 +15,14 @@ import { useUser } from '../../context/UserContext';
 
 export default function Home() {
   const auth = useUser();
-  if (auth.user.email) return <Redirect to="/notes" />;
+  if (auth.user.email) return <Redirect to="/main" />;
 
   return (
-    <section className={styles.home}>
+    <section>
       <h1>Welcome to the notebook!</h1>
       <p>
-        Please <Link to="/login">sign in</Link> to see your notes.
+        Please <Link to="/login">sign in</Link>.
       </p>
-      <img src={journal} alt="notebook image" />
     </section>
   );
 }

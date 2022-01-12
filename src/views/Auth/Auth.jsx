@@ -28,7 +28,7 @@ export default function Auth({ isSigningUp = false }) {
   };
 
   return (
-    <section className={styles.authForm}>
+    <section>
       <h2>{isSigningUp ? 'Welcome!' : 'Welcome back!'}</h2>
       <br />
 
@@ -43,7 +43,7 @@ export default function Auth({ isSigningUp = false }) {
         </p>
       ) : (
         <p>
-          Need an account? <Link to="/register">Sign Up</Link>
+          Need an account? <Link to="/signup">Sign Up</Link>
         </p>
       )}
     </section>

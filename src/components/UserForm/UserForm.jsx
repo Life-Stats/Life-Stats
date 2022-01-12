@@ -32,27 +32,25 @@ export default function UserForm({
 
   return (
     <form className={className} onSubmit={handleSubmit}>
-      <fieldset className={styles.form}>
+      <fieldset>
         <legend>{label}</legend>
-        <section className={styles.formSection}>
+        <section>
           <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
             name="email"
             value={formState.email}
-            className={styles.input}
             onChange={handleFormChange}
           />
         </section>
-        <section className={styles.formSection}>
+        <section>
           <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
             name="password"
             value={formState.password}
-            className={styles.input}
             onChange={handleFormChange}
           />
         </section>
