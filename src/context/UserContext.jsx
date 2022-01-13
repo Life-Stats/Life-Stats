@@ -1,10 +1,12 @@
 import { createContext, useContext, useMemo, useState } from 'react';
-import { getUser } from '../services/users';
+// import { getUser } from '../services/users'; // originally from front end call
+// call here to back to grab services 'user data'
+import { getAUser } from '../utils/utils';
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const currentUser = getUser(); //make call to BE to get user instead of call here
+  const currentUser = getAUser(); //make call to BE to get user instead of call here
   const [user, setUser] = useState(
     currentUser ? { id: currentUser.id, email: currentUser.email } : {}
   );

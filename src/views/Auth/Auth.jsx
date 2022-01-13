@@ -2,9 +2,9 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import UserForm from '../../components/UserForm/UserForm';
 import { useUser } from '../../context/UserContext';
-import { signInUser, signUpUser } from '../../services/users';
-
-
+// import { signInUser, signUpUser } from '../../services/users';
+import { getSignUpUser } from '../../utils/utils';
+// cal fetch utils function to gain access to user data from back end response
 
 export default function Auth({ isSigningUp = false }) {
   const history = useHistory();
@@ -18,7 +18,7 @@ export default function Auth({ isSigningUp = false }) {
       );
       //services need to put in BE and make call to talk to Supabase
       if(isSigningUp) {
-        const user = await signUpUser(email,password)
+        const user = await getSignUpUser(email,password)
         setUser(user)
         history.push('/confirm')
       } else {
