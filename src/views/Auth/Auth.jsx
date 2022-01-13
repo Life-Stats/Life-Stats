@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import UserForm from '../../components/UserForm/UserForm';
 import { useUser } from '../../context/UserContext';
 // import { signInUser, signUpUser } from '../../services/users';
-import { getSignUpUser } from '../../utils/utils';
+import { getAUser, getSignUpUser } from '../../utils/utils';
 // cal fetch utils function to gain access to user data from back end response
 
 export default function Auth({ isSigningUp = false }) {
@@ -17,12 +17,13 @@ export default function Auth({ isSigningUp = false }) {
         'An email and password (with 6+ characters) are required.'
       );
       //services need to put in BE and make call to talk to Supabase
+      // if they are signing up 
       if(isSigningUp) {
         const user = await getSignUpUser(email,password)
         setUser(user)
         history.push('/confirm')
       } else {
-        const user = await signInUser(email, password)
+        const user = await getAUser(email, password)
         setUser(user)
         history.push('/main')
       }

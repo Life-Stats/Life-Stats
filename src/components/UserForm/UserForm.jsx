@@ -29,7 +29,6 @@ export default function UserForm({
 
   return (
     <form className={className} onSubmit={handleSubmit}>
-      <fieldset>
         <legend>{label}</legend>
         <section>
           <label htmlFor="email">Email</label>
@@ -55,7 +54,7 @@ export default function UserForm({
           {loading ? 'Authenticating...' : label}
         </button>
         {formError && <p>{formError}</p>}
-      </fieldset>
+    
     </form>
   );
 }

@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// export default function Home() {
-//     return (
-//         <div>
-//             <h1>Home view</h1>
-//         </div>
-//     )
-// }
-
-
 import { Link, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 
@@ -19,7 +8,8 @@ export default function Home() {
 
   return (
     <section>
-      <h1>Welcome to the notebook!</h1>
+      <h1>Welcome to Life Stats.... </h1>
+      <p>Description of app goes here..</p> 
       <p>
         Please <Link to="/login">sign in</Link>.
       </p>
