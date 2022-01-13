@@ -1,25 +1,17 @@
 import { client } from './client';
 
-export function getUser() {
-  return client.auth.user();
-}
+// // BE services
+// export async function getBreweries(token) {
 
-export function getSession() {
-  return client.auth.session();
-}
-
-export async function signUpUser(email, password) {
-  const { user, error } = await client.auth.signUp({ email, password });
-  if (error) throw error;
-  return user;
-}
-
-export async function signInUser(email, password) {
-  const { user, error } = await client.auth.signIn({ email, password });
-  if (error) throw error;
-  return user;
-}
-
-export async function signOutUser() {
-  return client.auth.signOut();
-}
+//   const authURL = `${URL}/api/breweries`;
+//   const response = await fetch(authURL, {
+//       method: 'GET',
+//       withCredentials: true,
+//       headers: {
+//         'Authorization': token,
+//         'Content-Type': 'application/json'
+//       }
+//   });
+//   const breweryData = await response.json();
+//   return breweryData;
+// }

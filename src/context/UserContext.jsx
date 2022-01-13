@@ -4,7 +4,7 @@ import { getUser } from '../services/users';
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const currentUser = getUser();
+  const currentUser = getUser(); //make call to BE to get user instead of call here
   const [user, setUser] = useState(
     currentUser ? { id: currentUser.id, email: currentUser.email } : {}
   );

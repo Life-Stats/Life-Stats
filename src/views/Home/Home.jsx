@@ -14,7 +14,7 @@ import { useUser } from '../../context/UserContext';
 
 
 export default function Home() {
-  const auth = useUser();
+  const auth = useUser();//make a call to BE for useUser
   if (auth.user.email) return <Redirect to="/main" />;
 
   return (

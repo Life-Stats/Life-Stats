@@ -12,7 +12,11 @@ export default function Auth({ isSigningUp = false }) {
 
   const handleSubmit = async (email, password) => {
     try {
-
+      if (!email || password.length < 6)
+      throw new Error(
+        'An email and password (with 6+ characters) are required.'
+      );
+      //services need to put in BE and make call to talk to Supabase
       if(isSigningUp) {
         const user = await signUpUser(email,password)
         setUser(user)
