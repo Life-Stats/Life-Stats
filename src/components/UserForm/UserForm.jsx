@@ -9,18 +9,17 @@ export default function UserForm({
 }) {
   const { formState, formError, handleFormChange, setFormError } = useForm({
     email: '',
-    password: '',
   });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = formState;
+    const { email } = formState;
 
     try {
      
       setLoading(true);
-      await onSubmit(email, password);
+      await onSubmit(email);
     } catch (error) {
       setLoading(false);
       setFormError(error.message);
@@ -37,16 +36,6 @@ export default function UserForm({
             type="email"
             name="email"
             value={formState.email}
-            onChange={handleFormChange}
-          />
-        </section>
-        <section>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={formState.password}
             onChange={handleFormChange}
           />
         </section>

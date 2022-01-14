@@ -10,20 +10,20 @@ export default function Auth({ isSigningUp = false }) {
   const history = useHistory();
   const { setUser } = useUser();
 
-  const handleSubmit = async (email, password) => {
+  const handleSubmit = async (email) => {
     try {
-      if (!email || password.length < 6)
+      if (!email)
         throw new Error(
-          'An email and password (with 6+ characters) are required.'
+          'An email is required.'
         );
       //services need to put in BE and make call to talk to Supabase
       // if they are signing up
       if (isSigningUp) {
-        const user = await getSignUpUser({ email, password });
+        const user = await getSignUpUser({ email });
         setUser(user);
         history.push('/confirm');
       } else {
-        const user = await getSignInUser({ email, password });
+        const user = await getSignInUser({ email });
         setUser(user);
         console.log('user', user);
         history.push('/main');
