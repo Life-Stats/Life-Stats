@@ -18,7 +18,10 @@ export default function UserForm({
     const { email, password } = formState;
 
     try {
-     
+      if (!email || password.length < 6)
+        throw new Error(
+          'An email and password (with 6+ characters) are required.'
+        );
       setLoading(true);
       await onSubmit(email, password);
     } catch (error) {
@@ -29,6 +32,7 @@ export default function UserForm({
 
   return (
     <form className={className} onSubmit={handleSubmit}>
+      <fieldset>
         <legend>{label}</legend>
         <section>
           <label htmlFor="email">Email</label>
@@ -54,7 +58,7 @@ export default function UserForm({
           {loading ? 'Authenticating...' : label}
         </button>
         {formError && <p>{formError}</p>}
-    
+      </fieldset>
     </form>
   );
 }
