@@ -17,6 +17,7 @@ export default function Auth({ isSigningIn = false }) {
         const user = await getSignInUser();
         setUser(user);
         console.log('user', user);
+        location.replace('https://uptupfmuuwpcbmudkedl.supabase.co/auth/v1/authorize?provider=google')
     } catch (error) {
       throw error;
     }
