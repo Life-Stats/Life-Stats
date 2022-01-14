@@ -13,7 +13,10 @@ export async function getSignUpUser(signUpInfo) {
     body: JSON.stringify(signUpInfo), // Do we need to stringify?
   });
   const signUpData = await response.json();
-  // localStorage.setItem('TOKEN', JSON.stringify(data.token));
+ // When User signs up it requires a password
+ // while sign in requires just an email and will send a magic link for auth 
+ // need to refactor front end and back end for magic link email confirmation
+ // access token is in the url and needs to be stored in cookie or local storage
 
   console.log('signUpData!/.....', signUpData);
   return signUpData;
@@ -33,7 +36,7 @@ export async function getSignInUser(signInInfo) {
   });
   console.log('res', response);
   const signInData = await response.json();
-  // localStorage.setItem('TOKEN', JSON.stringify(data.token));
+
 
   console.log('signInData!/.....', signInData);
   return signInData;
