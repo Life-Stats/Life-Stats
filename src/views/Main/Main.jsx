@@ -1,23 +1,28 @@
-import React from 'react';
-import '../../../node_modules/react-modern-calendar-datepicker';
+import React, { useState } from 'react';
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import DatePicker from 'react-modern-calendar-datepicker';
-import { useState } from 'react';
 
 export default function Main() {
-  const [startDate, setStartDate] = useState(null);
+  const [selectedBirthDate, setSelectedBirthDate] = useState(null);
   const [name, setName] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name"></label>
-      <input id="name" value={name} onChange={(name) => setName(name)}></input>
+      <input
+        type="text"
+        id="name"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      ></input>
       <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        value={selectedBirthDate}
+        onChange={setSelectedBirthDate}
+        inputPlaceholder="Select your birthdate"
       />
     </form>
   );
