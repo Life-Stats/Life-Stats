@@ -1,52 +1,53 @@
 
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import UserForm from '../../components/UserForm/UserForm';
+// import UserForm from '../../components/UserForm/UserForm';
 import { useUser } from '../../context/UserContext';
+<<<<<<< HEAD
 import { signInUser, signUpUser } from '../../services/users';
 
 
+=======
+// import { signInUser, signUpUser } from '../../services/users';
+import { getSignInUser } from '../../utils/utils';
+import Styles from './Auth.css'
+// cal fetch utils function to gain access to user data from back end response
+>>>>>>> f4e0628ff1a001e6f88823f64ef40249b8fa0d80
 
-export default function Auth({ isSigningUp = false }) {
+export default function Auth({ isSigningIn = false }) {
   const history = useHistory();
   const { setUser } = useUser();
 
-  const handleSubmit = async (email, password) => {
+  const handleSubmit = async () => {
     try {
-
-      if(isSigningUp) {
-        const user = await signUpUser(email,password)
-        setUser(user)
-        history.push('/confirm')
-      } else {
-        const user = await signInUser(email, password)
-        setUser(user)
-        history.push('/main')
-      }
+      //services need to put in BE and make call to talk to Supabase
+      // if they are signing up
+        const user = await getSignInUser();
+        setUser(user);
+        console.log('user', user);
+        // location.replace('https://uptupfmuuwpcbmudkedl.supabase.co/auth/v1/authorize?provider=google')
     } catch (error) {
       throw error;
     }
   };
 
   return (
-    <section>
-      <h2>{isSigningUp ? 'Welcome!' : 'Welcome back!'}</h2>
-      <br />
-
-      <UserForm
-        onSubmit={handleSubmit}
-        label={isSigningUp ? 'Sign Up' : 'Sign In'}
-      />
-
-      {isSigningUp ? (
-        <p>
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
-      ) : (
-        <p>
-          Need an account? <Link to="/signup">Sign Up</Link>
-        </p>
-      )}
+    <>
+    <div>
+    <section className={StyleSheet.authSect}>
+      <h2 className={Styles.authWelcome}>Welcome!</h2>
     </section>
+<div className={Styles.btnDiv}>
+    <button className={Styles.authBtn} onClick={handleSubmit}>
+  <section className={Styles.btnSect}>
+    <div className={Styles.imgDiv}>
+    <img  className={Styles.googleBtn} src='https://freesvg.org/img/1534129544.png' />
+    </div>
+    <p className={Styles.btnP}>Sign in with Google</p>
+    </section>
+    </button>
+</div>
+</div>
+    </>
   );
 }

@@ -19,25 +19,21 @@
 //   return signUpData;
 // }
 
-// export async function getSignInUser(signInInfo) {
-//   console.log('signInInfo', signInInfo);
-//   const authURL = 'http://localhost:7890/api/v1/auth/login';
-//   const response = await fetch(authURL, {
-//     method: 'POST',
-//     mode: 'cors',
-//     credentials: 'include',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(signInInfo), // Do we need to stringify?
-//   });
-//   console.log('res', response);
-//   const signInData = await response.json();
-//   // localStorage.setItem('TOKEN', JSON.stringify(data.token));
+export async function getSignInUser() {
+  const authURL = 'http://localhost:7890/api/v1/auth/login';
+  const response = await fetch(authURL, {
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  console.log('res', response);
+  // localStorage.setItem('TOKEN', JSON.stringify(data.token));
 
-//   console.log('signInData!/.....', signInData);
-//   return signInData;
-// }
+  return response;
+}
 
 // export async function getAUser() {
 //   const authURL = 'http://localhost:7890/api/v1/auth/main';
