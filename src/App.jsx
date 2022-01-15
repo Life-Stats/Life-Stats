@@ -18,17 +18,11 @@ function App() {
       <Route exact path='/login'>
         <Auth />
       </Route>
-      <Route path='/confirm'>
-        <ConfirmEmail />
-      </Route>
       <Route exact path='/main'>
         <Main />
       </Route>
       <Route exact path='/about'>
         <AboutUs/>
-      </Route>
-      <Route exact path='/signup'>
-        <Auth isSigningUp />
       </Route>
    </Switch>
    </Router>
