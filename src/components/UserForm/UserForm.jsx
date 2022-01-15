@@ -7,20 +7,18 @@ export default function UserForm({
   label = 'Authenticate',
   onSubmit,
 }) {
-  const { formState, formError, handleFormChange, setFormError } = useForm({
-    email: '',
-    password: '',
-  });
+  // const { formState, formError, handleFormChange, setFormError } = useForm({
+  //   email: '',
+  // });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = formState;
+    // const { email } = formState;
 
     try {
      
       setLoading(true);
-      await onSubmit(email, password);
     } catch (error) {
       setLoading(false);
       setFormError(error.message);
@@ -30,26 +28,7 @@ export default function UserForm({
   return (
     <form className={className} onSubmit={handleSubmit}>
         <legend>{label}</legend>
-        <section>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={formState.email}
-            onChange={handleFormChange}
-          />
-        </section>
-        <section>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={formState.password}
-            onChange={handleFormChange}
-          />
-        </section>
+     
         <button type="submit" disabled={loading}>
           {loading ? 'Authenticating...' : label}
         </button>
