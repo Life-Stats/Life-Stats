@@ -13,14 +13,29 @@ export function getSession() {
 
  export async function signInUser() {
   // eslint-disable-next-line no-unused-vars
-  const href = window.location.href.split("#")[0]
+  
   const { user, session, error } = await client.auth.signIn({ 
     provider: 'google'
   },
-  {
-    redirectTo: href
+  // {
+  //   redirectTo: 
 
-  }
+  // }
+  );
+  if (error) throw error;
+  return user;
+};
+
+export async function signInUserGitHub() {
+  // eslint-disable-next-line no-unused-vars
+  
+  const { user, session, error } = await client.auth.signIn({ 
+    provider: 'github'
+  },
+  // {
+  //   redirectTo: 
+
+  // }
   );
   if (error) throw error;
   return user;
