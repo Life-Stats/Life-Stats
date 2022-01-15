@@ -14,13 +14,18 @@ export default function Main() {
       let splitDate = newDate.split('-'); // ex: ['2022', '11', '03']
       // console.log(splitDate[0]) // ex: 2022
       let today = new Date(); // gets current date ex: Fri 2022 14 01
-      let todaysDate = today.getFullYear()
+      let todaysYear = today.getFullYear();
+      let todaysMonth = today.getMonth();
+      let todaysDay = today.getDate();
       // we need to subtract current year from selected year
-      let yearDiff = todaysDate - splitDate[0];
+      let yearDiff = todaysYear - splitDate[0]; //ex 2022 - 2002 = 20
+      let todaysMonthIsGreater = 
+      let monthDiff = splitDate[1] > todaysMonth ?  :; //ex 9 > 4 ? that means they took less breaths - need to subtract the number of seconds for each month to until month
+      let dayDiff = todaysDay - splitDate[2];
       // console.log(yearDiff); // ex: 3 if 2019 was chosen
       // outcome multiplied by yearly seconds variable
-      let yearSecsTotal = yearlySeconds * yearDiff; // confirmed 
-      let numberOfBreathsInYear = yearSecsTotal/breathsPerSecond;
+      let yearSecsTotal = yearlySeconds * yearDiff; // confirmed ex 31536000 * 20 = 630720000
+      let numberOfBreathsInYear = yearSecsTotal * breathsPerSecond; //ex 630720000 * .25
       // console.log(numberOfBreathsInYear);
       // +'-'+(today.getMonth()+1)+'-'+today.getDate();
       // let splitTodaysDate = todaysDate.split('-')
@@ -36,28 +41,27 @@ export default function Main() {
   const yearlySeconds = 31536000;
   const breathsPerSecond = 0.25;
 
-  // console.log(date); // ex: '2022-11-03' 
+  // console.log(date); // ex: '2022-11-03'
 
-  
   // console.log('MUNGED', mungedDate);
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="start">Enter your Birthday</label>
-      <input 
-        id='start'
-        type='date'
+      <input
+        id="start"
+        type="date"
         value={date}
         onChange={(event) => setDate(event.target.value)}
       />
-      <button type="submit" value="submit">Submit</button>
+      <button type="submit" value="submit">
+        Submit
+      </button>
 
       <div>
-        {breathsState ? <p>You've taken {`${breathsState}`} breaths since your birthday</p>
-        :
-        null
-        }
-        
+        {breathsState ? (
+          <p>You've taken {`${breathsState}`} breaths since your birthday</p>
+        ) : null}
       </div>
       {/* <input
         type="text"
@@ -65,7 +69,7 @@ export default function Main() {
         value={name}
         onChange={(event) => setName(event.target.value)}
       ></input> */}
-      
+
       {/* <DatePicker className={DatePicker}
         value={selectedBirthDate}
         onChange={setSelectedBirthDate}
