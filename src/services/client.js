@@ -1,12 +1,18 @@
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js') ;
 
-export const client = createClient(
+// possible back end service
+
+const client = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 );
 
-export const parseData = ({ data, error }) => {
+const parseData = ({ data, error }) => {
   if (error) throw error;
-
   return data;
 };
+
+module.exports = { client, parseData };
+
+
+

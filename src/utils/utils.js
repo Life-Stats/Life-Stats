@@ -19,21 +19,21 @@
 //   return signUpData;
 // }
 
-export async function getSignInUser() {
-  const authURL = 'http://localhost:7890/api/v1/auth/login';
-  const response = await fetch(authURL, {
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  console.log('res', response);
-  // localStorage.setItem('TOKEN', JSON.stringify(data.token));
+// export async function getSignInUser() {
+//   const authURL = 'http://localhost:7890/api/v1/auth/login';
+//   const response = await fetch(authURL, {
+//     method: 'POST',
+//     mode: 'cors',
+//     credentials: 'include',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
+//   console.log('res', response);
+//   // localStorage.setItem('TOKEN', JSON.stringify(data.token));
 
-  return response;
-}
+//   return response;
+// }
 
 // export async function getAUser() {
 //   const authURL = 'http://localhost:7890/api/v1/auth/main';

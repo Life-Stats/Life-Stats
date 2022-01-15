@@ -1,18 +1,9 @@
 
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-// import UserForm from '../../components/UserForm/UserForm';
 import { useUser } from '../../context/UserContext';
-<<<<<<< HEAD
-import { signInUser, signUpUser } from '../../services/users';
-
-
-=======
-// import { signInUser, signUpUser } from '../../services/users';
-import { getSignInUser } from '../../utils/utils';
+import { signInUser } from '../../services/users';
 import Styles from './Auth.css'
 // cal fetch utils function to gain access to user data from back end response
->>>>>>> f4e0628ff1a001e6f88823f64ef40249b8fa0d80
 
 export default function Auth({ isSigningIn = false }) {
   const history = useHistory();
@@ -22,10 +13,9 @@ export default function Auth({ isSigningIn = false }) {
     try {
       //services need to put in BE and make call to talk to Supabase
       // if they are signing up
-        const user = await getSignInUser();
+        const user = await signInUser();
         setUser(user);
         console.log('user', user);
-        // location.replace('https://uptupfmuuwpcbmudkedl.supabase.co/auth/v1/authorize?provider=google')
     } catch (error) {
       throw error;
     }
