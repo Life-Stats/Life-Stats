@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 
 export async function getFake(date) {
-  const authURL = 'http://localhost:7890/api/v1/practice';
+  const authURL = 'http://localhost:7890/api/v1/auth/practice';
   const response = await fetch(authURL, {
     method: 'POST',
     mode: 'cors',
@@ -15,7 +15,7 @@ export async function getFake(date) {
   console.log('res', response);
   // localStorage.setItem('TOKEN', JSON.stringify(data.token));
 
-  return await response.json();
+  return response.json();
 }
 
 // export async function getSignUpUser(signUpInfo) {
