@@ -1,57 +1,65 @@
+
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import UserForm from '../../components/UserForm/UserForm';
 import { useUser } from '../../context/UserContext';
-// import { signInUser, signUpUser } from '../../services/users';
-import { getSignUpUser, getSignInUser } from '../../utils/utils';
+import { signInUser, signInUserGitHub } from '../../services/users';
+import Styles from './Auth.css'
 // cal fetch utils function to gain access to user data from back end response
 
-export default function Auth({ isSigningUp = false }) {
+export default function Auth({ isSigningIn = false }) {
   const history = useHistory();
   const { setUser } = useUser();
 
-  const handleSubmit = async (email) => {
+  const handleSubmit = async () => {
     try {
-      if (!email)
-        throw new Error(
-          'An email is required.'
-        );
       //services need to put in BE and make call to talk to Supabase
       // if they are signing up
-      if (isSigningUp) {
-        const user = await getSignUpUser({ email });
-        setUser(user);
-        history.push('/confirm');
-      } else {
-        const user = await getSignInUser({ email });
+        const user = await signInUser();
         setUser(user);
         console.log('user', user);
-        history.push('/main');
-      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const handleSubmitGitHub = async () => {
+    try {
+      //services need to put in BE and make call to talk to Supabase
+      // if they are signing up
+        const user = await signInUserGitHub();
+        setUser(user);
+        console.log('user', user);
     } catch (error) {
       throw error;
     }
   };
 
   return (
-    <section>
-      <h2>{isSigningUp ? 'Welcome!' : 'Welcome back!'}</h2>
-      <br />
+    <>
+   
+    <div className={Styles.btnDiv}>
+      <section className={Styles.authSect}>
+        <h2 className={Styles.authWelcome}>Welcome!</h2>
+        <p>Click the button to Sign in with Google</p>
+      </section>
+      <button className={Styles.authBtn} onClick={handleSubmit}>
+        <section className={Styles.btnSect}>
+          <div className={Styles.imgDiv}>
+            <img  className={Styles.googleBtn} src='https://freesvg.org/img/1534129544.png' />
+          </div>
+            <p className={Styles.btnP}>Sign in with Google</p>
+          </section>
+      </button>
 
-      <UserForm
-        onSubmit={handleSubmit}
-        label={isSigningUp ? 'Sign Up' : 'Sign In'}
-      />
+      <button className={Styles.authBtn} onClick={handleSubmitGitHub}>
+        <section className={Styles.btnSect}>
+          <div className={Styles.imgDiv}>
+            <img  className={Styles.googleBtn} src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Github-circle_%28CoreUI_Icons_v1.0.0%29.svg/2048px-Github-circle_%28CoreUI_Icons_v1.0.0%29.svg.png' />
+          </div>
+            <p className={Styles.btnP}>Sign in with GitHub</p>
+          </section>
+      </button>
+    </div>
 
-      {isSigningUp ? (
-        <p>
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
-      ) : (
-        <p>
-          Need an account? <Link to="/signup">Sign Up</Link>
-        </p>
-      )}
-    </section>
+    </>
   );
 }
