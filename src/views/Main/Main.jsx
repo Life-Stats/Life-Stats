@@ -6,7 +6,7 @@ export default function Main() {
   // const [selectedBirthDate, setSelectedBirthDate] = useState(null);
   const [date, setDate] = useState('');
   const [breathsState, setBreathsState] = useState();
-  const [totalDays, setTotalDays] = useState();
+  const [totalBreaths, setTotalBreaths] = useState();
   const [d, setDay] = useState('');
   const [m, setMonth] = useState('');
   const [y, setYear] = useState('');
@@ -64,27 +64,35 @@ export default function Main() {
   let dt2 = new DateCon(todayDay, todayMonth, todayYear);
   const totalNumOfDays = getDifference(dt1, dt2);
   const newTotal = totalNumOfDays * dailySeconds * breathsPerSecond;
+
+  // let count = newTotal;
+  // const counter = setInterval(timer, 1000); //1000 will run it every 1 second
   
+  // function timer() {
+  //   count = count + 1;
+  //   if (count <= 0)
+  //   {
+  //     clearInterval(counter);
+  //     return;
+  //   } 
+  //   return count;
+  // }
+  // timer()
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
     function mungedDate(date) {
       let newDate = date;
       let splitDate = newDate.split('-'); // ex: ['2022', '11', '03']
       let d = Number(splitDate.reverse()[0]); // ex: ['01', '10', '1988']
       let m = Number(splitDate.reverse()[1]); // ex: ['01', '10', '1988']
       let y = Number(splitDate.reverse()[2]); // ex: ['01', '10', '1988']
-      // let dateString = d + m + y;
-      console.log(d, 'D');
-      console.log(m, 'M');
-      console.log(y, 'Y');
-      // console.log(dateString, 'Dtaeijwidjid');
-      // ex: ['01', '10', '1988']
       setDay(d);
       setMonth(m);
       setYear(y);
       return [d, m, y];
     }
-    console.log('MUNGE', mungedDate(date));
     setBreathsState(mungedDate(date));
   };
 
