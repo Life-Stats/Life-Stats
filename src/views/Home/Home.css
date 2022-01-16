@@ -1,11 +1,18 @@
 body {
-    background-color: rgb(247, 255, 247);
-    background-repeat: no-repeat;
+    background-color: rgb(254, 249, 239);
+    background-image: url('https://live.staticflickr.com/65535/51273433684_c439bd486c_b.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+
 }
+
+
 .div {
     background-color: rgba(254, 109, 115);
-    border-radius: 2rem;
+    border-radius: 1rem;
     text-align: center;
     margin-left: 5%;
     margin-right: 5%;
@@ -13,16 +20,11 @@ body {
 
 h1 {
     font-size: 3em;
+    margin: 0;
 }
 
-.imgSection {
- text-align: center;
-}
-
-.image {
-    height: 100px;
-    width: 100px;
-   
+.titleDiv {
+    text-align: center;
 }
 
 
@@ -33,18 +35,77 @@ h1 {
 .section {
     
     background-color: rgba(254, 249, 239);
-    border: 5px solid rgba(254, 109, 115);
+    border: 0.5em solid rgba(254, 109, 115);
     margin: 2%;
 }
 
-.titleSection {
-    text-align: center;
-    background-color: rgba(254, 249, 239);
-    border-bottom-width: 2px;
-    border-bottom-style: double;
-    border-bottom-color: black;
-    margin-left: 35%;
-    margin-right: 35%;
-    padding-top: 0px;
+
+.btnDiv {
+    margin: 10% 30%;
 }
+
+    /* <!-- HTML !-->
+<button class="button-19" role="button">Button 19</button> */
+
+/* CSS */
+.signin {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.signin:after {
+  background-clip: padding-box;
+  background-color: #f61c77dc;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.signin:main,
+.singin:focus {
+  user-select: auto;
+}
+
+.singin:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.signin:disabled {
+  cursor: auto;
+}
+
+
 
