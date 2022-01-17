@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './Main.css';
+import Styles from './Main.css';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -106,7 +106,7 @@ export default function Main() {
   return (
     <>
       {show && (
-        <div>
+        <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
             <label htmlFor="start">Enter your Birthday: </label>
             <input
@@ -122,7 +122,7 @@ export default function Main() {
         </div>
       )}
 
-      <section>
+      <section className={Styles.infoSection}>
         <div>
           {breathsState ? (
             <p>You've taken {`${newTotalBreaths}`} breaths!</p>

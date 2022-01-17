@@ -1,5 +1,16 @@
-body {
+.formSubmit {
   text-align: center;
+}
+
+.infoSection {
+  text-align: center;
+}
+
+.infoSection p {
+  display: flex;
+  justify-content: center;
+  margin: 400px 0 800px 0;
+  font-size: 1.5em;
 }
 
 form {
@@ -23,11 +34,4 @@ form button {
   justify-content: center;
   margin: 0 auto;
   margin-top: 20px;
-}
-
-p {
-  display: flex;
-  justify-content: center;
-  margin: 400px 0 800px 0;
-  font-size: 1.5em;
 }
