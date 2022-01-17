@@ -3,25 +3,28 @@ import React, { useState } from 'react';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
 export default function Main() {
-  // const [selectedBirthDate, setSelectedBirthDate] = useState(null);
   const [date, setDate] = useState('');
   const [breathsState, setBreathsState] = useState();
-  const [totalBreaths, setTotalBreaths] = useState();
+  const [heartBeats, setHeartBeats] = useState();
+  const [blinks, setBlinks] = useState();
+  const [yearsAsleep, setYearsAsleep] = useState();
+  const [dreamDays, setDreamDays] = useState();
+  const [globalExtinction, setGlobalExtinction] = useState();
   const [d, setDay] = useState('');
   const [m, setMonth] = useState('');
   const [y, setYear] = useState('');
 
   let today = new Date();
-  console.log('TODAY', today);
   let todayYear = Number(today.getFullYear());
   let todayMonth = Number(today.getMonth() + 1);
   let todayDay = Number(today.getDate());
-  // let todayObj = { todayDay, todayMonth, todayYear };
-  // console.log(todayObj, 'TODAYOBJ');
+
   const dailySeconds = 86400;
-  const monthlySeconds = 2628288;
-  const yearlySeconds = 31536000;
   const breathsPerSecond = 0.267;
+  const heartBeatsPerSecond = 1.3;
+  const blinksPerSecond = 0.225;
+//   const monthlySeconds = 2628288;
+//   const yearlySeconds = 31536000;
 
   class DateCon {
     constructor(d, m, y) {
@@ -63,21 +66,13 @@ export default function Main() {
   let dt1 = new DateCon(d, m, y);
   let dt2 = new DateCon(todayDay, todayMonth, todayYear);
   const totalNumOfDays = getDifference(dt1, dt2);
-  const newTotal = totalNumOfDays * dailySeconds * breathsPerSecond;
 
-  // let count = newTotal;
-  // const counter = setInterval(timer, 1000); //1000 will run it every 1 second
-  
-  // function timer() {
-  //   count = count + 1;
-  //   if (count <= 0)
-  //   {
-  //     clearInterval(counter);
-  //     return;
-  //   } 
-  //   return count;
-  // }
-  // timer()
+  const newTotalBreaths = totalNumOfDays * dailySeconds * breathsPerSecond;
+  const totalHeartBeats = totalNumOfDays * dailySeconds * heartBeatsPerSecond;
+  const totalBlinks = totalNumOfDays * dailySeconds * blinksPerSecond;
+  const totalDreamDays = Math.ceil((totalNumOfDays * 2) / 24);
+  const totalYearsAsleep = ((totalNumOfDays / 3) / 365).toFixed(2); 
+  const totalExtinct = totalNumOfDays * 150
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -94,6 +89,11 @@ export default function Main() {
       return [d, m, y];
     }
     setBreathsState(mungedDate(date));
+    setHeartBeats(mungedDate(date));
+    setBlinks(mungedDate(date));
+    setYearsAsleep(mungedDate(date));
+    setDreamDays(mungedDate(date));
+    setGlobalExtinction(mungedDate(date));
   };
 
   return (
@@ -111,21 +111,58 @@ export default function Main() {
 
       <div>
         {breathsState ? (
-          <p>You've taken {`${newTotal}`} breaths since your birthday</p>
+          <p>You've taken {`${newTotalBreaths}`} breaths!</p>
         ) : null}
       </div>
-      {/* <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      ></input> */}
 
-      {/* <DatePicker className={DatePicker}
-        value={selectedBirthDate}
-        onChange={setSelectedBirthDate}
-        inputPlaceholder="Select your birthdate"
-      /> */}
+      <div>
+        {heartBeats ? (
+          <p>You're heart has beaten {`${totalHeartBeats}`} times!</p>
+        ) : null}
+      </div>
+
+      <div>
+        {blinks ? (
+          <p>You have blinked {`${totalBlinks}`} times!</p>
+        ) : null}
+      </div>
+
+      <div>
+        {yearsAsleep ? (
+          <p>{`${totalYearsAsleep}`} years of your life has been spent asleep!</p>
+        ) : null}
+      </div>
+
+      <div>
+        {dreamDays ? (
+          <p>{`${totalDreamDays}`} days of your life has been spent just dreaming!</p>
+        ) : null}
+      </div>
+
+      <div>
+        {globalExtinction ? (
+          <p>Some estimated total {`${totalExtinct}`} species of animal life have since gone extinct..</p>
+        ) : null}
+      </div>
+
     </form>
   );
 }
+
+// This function below handles running timer implementation.. 
+    // let count = 3000; // count value will be related to after munged number date calc
+    //  const counter=setInterval(timer, 1000); //1000 will run it every 1 second
+
+    // function timer()
+    // {
+    //   count=count+1;
+    //   if (count <= 0)
+    //   {
+    //      clearInterval(counter);
+    //      //counter ended, do something here
+    //      return;
+    //   }
+    //   //Do code for showing the number of seconds here
+    //     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+    // } // NOTE: timer ^ is id in HTML
+    // timer()
