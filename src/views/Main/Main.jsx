@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Main.css';
+// import './Main.css';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -14,6 +14,7 @@ export default function Main() {
   const [d, setDay] = useState('');
   const [m, setMonth] = useState('');
   const [y, setYear] = useState('');
+  const [show, setShow] = useState(true);
 
   let today = new Date();
   let todayYear = Number(today.getFullYear());
@@ -24,8 +25,8 @@ export default function Main() {
   const breathsPerSecond = 0.267;
   const heartBeatsPerSecond = 1.3;
   const blinksPerSecond = 0.225;
-//   const monthlySeconds = 2628288;
-//   const yearlySeconds = 31536000;
+  //   const monthlySeconds = 2628288;
+  //   const yearlySeconds = 31536000;
 
   class DateCon {
     constructor(d, m, y) {
@@ -68,12 +69,16 @@ export default function Main() {
   let dt2 = new DateCon(todayDay, todayMonth, todayYear);
   const totalNumOfDays = getDifference(dt1, dt2);
 
-  const newTotalBreaths = Math.floor(totalNumOfDays * dailySeconds * breathsPerSecond);
+  const newTotalBreaths = Math.floor(
+    totalNumOfDays * dailySeconds * breathsPerSecond
+  );
   const totalHeartBeats = totalNumOfDays * dailySeconds * heartBeatsPerSecond;
   const totalBlinks = totalNumOfDays * dailySeconds * blinksPerSecond;
   const totalDreamDays = Math.ceil((totalNumOfDays * 2) / 24);
-  const totalYearsAsleep = ((totalNumOfDays / 3) / 365).toFixed(2); 
-  const totalExtinct = totalNumOfDays * 150
+  const totalYearsAsleep = (totalNumOfDays / 3 / 365).toFixed(2);
+  const totalExtinct = totalNumOfDays * 150;
+
+  const x = show;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,6 +94,7 @@ export default function Main() {
       setYear(y);
       return [d, m, y];
     }
+    setShow(false);
     setBreathsState(mungedDate(date));
     setHeartBeats(mungedDate(date));
     setBlinks(mungedDate(date));
@@ -99,20 +105,22 @@ export default function Main() {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit} className="Main">
-          <label htmlFor="start">Enter your Birthday: </label>
-          <input
-            id="start"
-            type="date"
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-          />
-          <button type="submit" value="submit">
-            Submit
-          </button>
-        </form>
-      </div>
+      {show && (
+        <div>
+          <form onSubmit={handleSubmit} className="Main">
+            <label htmlFor="start">Enter your Birthday: </label>
+            <input
+              id="start"
+              type="date"
+              value={date}
+              onChange={(event) => setDate(event.target.value)}
+            />
+            <button type="submit" value="submit">
+              {show ? 'Submit' : 'Not'}
+            </button>
+          </form>
+        </div>
+      )}
 
       <section>
         <div>
@@ -128,26 +136,32 @@ export default function Main() {
         </div>
 
         <div>
-          {blinks ? (
-            <p>You have blinked {`${totalBlinks}`} times!</p>
-          ) : null}
+          {blinks ? <p>You have blinked {`${totalBlinks}`} times!</p> : null}
         </div>
 
         <div>
           {yearsAsleep ? (
-            <p>{`${totalYearsAsleep}`} years of your life has been spent asleep!</p>
+            <p>
+              {`${totalYearsAsleep}`} years of your life has been spent asleep!
+            </p>
           ) : null}
         </div>
 
         <div>
           {dreamDays ? (
-            <p>{`${totalDreamDays}`} days of your life has been spent just dreaming!</p>
+            <p>
+              {`${totalDreamDays}`} days of your life has been spent just
+              dreaming!
+            </p>
           ) : null}
         </div>
 
         <div>
           {globalExtinction ? (
-            <p>Some estimated total {`${totalExtinct}`} species of animal life have since gone extinct..</p>
+            <p>
+              Some estimated total {`${totalExtinct}`} species of animal life
+              have since gone extinct..
+            </p>
           ) : null}
         </div>
       </section>
@@ -155,20 +169,20 @@ export default function Main() {
   );
 }
 
-// This function below handles running timer implementation.. 
-    // let count = 3000; // count value will be related to after munged number date calc
-    //  const counter=setInterval(timer, 1000); //1000 will run it every 1 second
+// This function below handles running timer implementation..
+// let count = 3000; // count value will be related to after munged number date calc
+//  const counter=setInterval(timer, 1000); //1000 will run it every 1 second
 
-    // function timer()
-    // {
-    //   count=count+1;
-    //   if (count <= 0)
-    //   {
-    //      clearInterval(counter);
-    //      //counter ended, do something here
-    //      return;
-    //   }
-    //   //Do code for showing the number of seconds here
-    //     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
-    // } // NOTE: timer ^ is id in HTML
-    // timer()
+// function timer()
+// {
+//   count=count+1;
+//   if (count <= 0)
+//   {
+//      clearInterval(counter);
+//      //counter ended, do something here
+//      return;
+//   }
+//   //Do code for showing the number of seconds here
+//     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+// } // NOTE: timer ^ is id in HTML
+// timer()

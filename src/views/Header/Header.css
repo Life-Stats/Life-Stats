@@ -1,0 +1,35 @@
+.header {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: rgba(254, 109, 115);
+border-bottom-left-radius: 50%;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.signinTitle {
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: rgb(23, 195, 178);
+border-radius: 100%;
+padding: 1%;
+
+}
+
+.signin {
+    font-size: 1rem;
+}
+
+
+.image {
+    height: 3rem;
+    width: 3rem;
+      
+}
+   
