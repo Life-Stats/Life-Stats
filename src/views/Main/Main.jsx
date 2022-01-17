@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
+import Aos from 'aos';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -103,8 +105,15 @@ export default function Main() {
     setGlobalExtinction(mungedDate(date));
   };
 
+  
+  useEffect(() => {
+    Aos.init({ duration: 3000 });
+  }, []);
+  
+
   return (
     <>
+  
       {show && (
         <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
@@ -125,46 +134,48 @@ export default function Main() {
       <section className={Styles.infoSection}>
         <div>
           {breathsState ? (
-            <p>You've taken {`${newTotalBreaths}`} breaths!</p>
+            <p data-aos="fade-left">You've taken {`${newTotalBreaths}`} breaths!</p>
           ) : null}
         </div>
 
         <div>
           {heartBeats ? (
-            <p>You're heart has beaten {`${totalHeartBeats}`} times!</p>
+            <p data-aos="fade-right">You're heart has beaten {`${totalHeartBeats}`} times!</p>
           ) : null}
         </div>
 
         <div>
-          {blinks ? <p>You have blinked {`${totalBlinks}`} times!</p> : null}
+          {blinks ? (
+          <p data-aos="fade-up">You have blinked {`${totalBlinks}`} times!</p> 
+          ) : null}
         </div>
 
         <div>
           {yearsAsleep ? (
-            <p>
+            <p data-aos="fade-up">
               {`${totalYearsAsleep}`} years of your life has been spent asleep!
             </p>
           ) : null}
         </div>
 
-        <div>
+        <div  >
           {dreamDays ? (
-            <p>
-              {`${totalDreamDays}`} days of your life has been spent just
-              dreaming!
+            <p data-aos="fade-up">
+              {`${totalDreamDays}`} days of your life has been spent just dreaming!
             </p>
           ) : null}
         </div>
 
-        <div>
+        <div  >
           {globalExtinction ? (
-            <p>
+            <p data-aos="fade-up">
               Some estimated total {`${totalExtinct}`} species of animal life
               have since gone extinct..
             </p>
           ) : null}
         </div>
       </section>
+      
     </>
   );
 }
