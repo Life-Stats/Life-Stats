@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Main.css';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -67,7 +68,7 @@ export default function Main() {
   let dt2 = new DateCon(todayDay, todayMonth, todayYear);
   const totalNumOfDays = getDifference(dt1, dt2);
 
-  const newTotalBreaths = totalNumOfDays * dailySeconds * breathsPerSecond;
+  const newTotalBreaths = Math.floor(totalNumOfDays * dailySeconds * breathsPerSecond);
   const totalHeartBeats = totalNumOfDays * dailySeconds * heartBeatsPerSecond;
   const totalBlinks = totalNumOfDays * dailySeconds * blinksPerSecond;
   const totalDreamDays = Math.ceil((totalNumOfDays * 2) / 24);
@@ -97,55 +98,60 @@ export default function Main() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="start">Enter your Birthday</label>
-      <input
-        id="start"
-        type="date"
-        value={date}
-        onChange={(event) => setDate(event.target.value)}
-      />
-      <button type="submit" value="submit">
-        Submit
-      </button>
-
+    <>
       <div>
-        {breathsState ? (
-          <p>You've taken {`${newTotalBreaths}`} breaths!</p>
-        ) : null}
+        <form onSubmit={handleSubmit} className="Main">
+          <label htmlFor="start">Enter your Birthday: </label>
+          <input
+            id="start"
+            type="date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+          />
+          <button type="submit" value="submit">
+            Submit
+          </button>
+        </form>
       </div>
 
-      <div>
-        {heartBeats ? (
-          <p>You're heart has beaten {`${totalHeartBeats}`} times!</p>
-        ) : null}
-      </div>
+      <section>
+        <div>
+          {breathsState ? (
+            <p>You've taken {`${newTotalBreaths}`} breaths!</p>
+          ) : null}
+        </div>
 
-      <div>
-        {blinks ? (
-          <p>You have blinked {`${totalBlinks}`} times!</p>
-        ) : null}
-      </div>
+        <div>
+          {heartBeats ? (
+            <p>You're heart has beaten {`${totalHeartBeats}`} times!</p>
+          ) : null}
+        </div>
 
-      <div>
-        {yearsAsleep ? (
-          <p>{`${totalYearsAsleep}`} years of your life has been spent asleep!</p>
-        ) : null}
-      </div>
+        <div>
+          {blinks ? (
+            <p>You have blinked {`${totalBlinks}`} times!</p>
+          ) : null}
+        </div>
 
-      <div>
-        {dreamDays ? (
-          <p>{`${totalDreamDays}`} days of your life has been spent just dreaming!</p>
-        ) : null}
-      </div>
+        <div>
+          {yearsAsleep ? (
+            <p>{`${totalYearsAsleep}`} years of your life has been spent asleep!</p>
+          ) : null}
+        </div>
 
-      <div>
-        {globalExtinction ? (
-          <p>Some estimated total {`${totalExtinct}`} species of animal life have since gone extinct..</p>
-        ) : null}
-      </div>
+        <div>
+          {dreamDays ? (
+            <p>{`${totalDreamDays}`} days of your life has been spent just dreaming!</p>
+          ) : null}
+        </div>
 
-    </form>
+        <div>
+          {globalExtinction ? (
+            <p>Some estimated total {`${totalExtinct}`} species of animal life have since gone extinct..</p>
+          ) : null}
+        </div>
+      </section>
+    </>
   );
 }
 
