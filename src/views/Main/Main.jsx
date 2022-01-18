@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
-import { getHolidays } from '../../utils/PracticeUtils.jsx';
+import { getHolidays, getHoroscope } from '../../utils/PracticeUtils.jsx';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -19,6 +19,7 @@ export default function Main() {
   const [y, setYear] = useState('');
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState('');
+  const [horoscope, setHoroscope] = useState('');
 
   let today = new Date();
   let todayYear = Number(today.getFullYear());
@@ -97,6 +98,7 @@ export default function Main() {
       setMonth(m);
       setYear(y);
       setHoliday(await getHolidays(y, m, d));
+      setHoroscope(await getHoroscope(y, m, d));
       return [d, m, y];
     }
     setShow(false);
@@ -195,6 +197,12 @@ export default function Main() {
               Some estimated total {`${totalExtinct}`} species of animal life
               have since gone extinct..
             </p>
+          ) : null}
+        </div>
+
+        <div>
+          {horoscope ? (
+            <p data-aos="fade-up">Here is a reading: {`${horoscope}`}</p>
           ) : null}
         </div>
       </section>

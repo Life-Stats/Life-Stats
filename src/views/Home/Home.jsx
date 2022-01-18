@@ -1,14 +1,13 @@
 import { Link, Redirect } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
+
 import Styles from './Home.css'
 
 export default function Home() {
-  const auth = useUser();//make a call to BE for useUser
-  if (auth.user.email) return <Redirect to="/main" />;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = 'http://localhost:7891/login';
+    window.location.href = 'https://pedantic-pasteur-453987.netlify.app/login';
   }
 
   return (

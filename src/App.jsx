@@ -19,13 +19,13 @@ function App() {
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route exact path='/login'>
+      <Route path='/login'>
         <Auth />
       </Route>
-      <PrivateRoute exact path='/main'>
+      <PrivateRoute path='/main'>
         <Main />
       </PrivateRoute>
-      <Route exact path='/about'>
+      <Route path='/about'>
         <AboutUs/>
       </Route>
    </Switch>

@@ -17,10 +17,10 @@ export function getSession() {
   const { user, session, error } = await client.auth.signIn({ 
     provider: 'google'
   },
-  // {
-  //   redirectTo: 
+  {
+    redirectTo: 'https://pedantic-pasteur-453987.netlify.app/main'
 
-  // }
+  }
   );
   if (error) throw error;
   return user;
