@@ -15,6 +15,9 @@ export default function Auth({ isSigningIn = false }) {
       // if they are signing up
         const user = await signInUser();
         setUser(user);
+        if(user) {
+          history.replace('https://pedantic-pasteur-453987.netlify.app/main')
+        }
         console.log('user', user);
     } catch (error) {
       throw error;
