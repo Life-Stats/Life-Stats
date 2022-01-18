@@ -16,7 +16,7 @@ export default function Auth({ isSigningIn = false }) {
         const user = await signInUser();
         setUser(user);
         console.log(user);
-        if (user) return <Redirect to="/main" />;
+        // if (user) return <Redirect to="/main" />;
 
         console.log('user', user);
     } catch (error) {
