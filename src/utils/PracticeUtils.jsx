@@ -47,7 +47,7 @@ const horoscopeURL =
 const fetchHoroscope = await fetch(horoscopeURL);
 const data = await fetchHoroscope.json();
 console.log('Horoscope => ', data.description);
-return data;
+return data.description;
 };
 
 
