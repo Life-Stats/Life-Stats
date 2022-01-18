@@ -105,15 +105,12 @@ export default function Main() {
     setGlobalExtinction(mungedDate(date));
   };
 
-  
   useEffect(() => {
     Aos.init({ duration: 3000 });
   }, []);
-  
 
   return (
     <>
-  
       {show && (
         <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
@@ -134,19 +131,33 @@ export default function Main() {
       <section className={Styles.infoSection}>
         <div>
           {breathsState ? (
-            <p data-aos="fade-left">You've taken {`${newTotalBreaths}`} breaths!</p>
+            <p data-aos="fade-left">
+              You've taken {`${newTotalBreaths}`} breaths!
+            </p>
           ) : null}
         </div>
 
         <div>
           {heartBeats ? (
-            <p data-aos="fade-right">You're heart has beaten {`${totalHeartBeats}`} times!</p>
+            <p data-aos="fade-right">
+              You're heart has beaten {`${totalHeartBeats}`} times!
+            </p>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
-          <p data-aos="fade-up">You have blinked {`${totalBlinks}`} times!</p> 
+            <>
+              <p data-aos="fade-up">
+                You have blinked {`${totalBlinks}`} times!
+                <div class={Styles.hole}>
+                  <div className={Styles.face}>
+                    <div className={Styles.eye}></div>
+                    <div className={Styles.eye}></div>
+                  </div>
+                </div>
+              </p>
+            </>
           ) : null}
         </div>
 
@@ -158,15 +169,16 @@ export default function Main() {
           ) : null}
         </div>
 
-        <div  >
+        <div>
           {dreamDays ? (
             <p data-aos="fade-up">
-              {`${totalDreamDays}`} days of your life has been spent just dreaming!
+              {`${totalDreamDays}`} days of your life has been spent just
+              dreaming!
             </p>
           ) : null}
         </div>
 
-        <div  >
+        <div>
           {globalExtinction ? (
             <p data-aos="fade-up">
               Some estimated total {`${totalExtinct}`} species of animal life
@@ -175,7 +187,6 @@ export default function Main() {
           ) : null}
         </div>
       </section>
-      
     </>
   );
 }

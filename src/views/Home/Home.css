@@ -1,67 +1,61 @@
- body {
-    background-color: rgb(254, 249, 239);
-    background-image: url('https://live.staticflickr.com/65535/51273433684_c439bd486c_b.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-
+body {
+  background-color: rgb(254, 249, 239);
+  /* background-image: url('https://live.staticflickr.com/65535/51273433684_c439bd486c_b.jpg'); */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-
 .div {
-    background-color: rgba(254, 109, 115);
-    border-radius: 1rem;
-    text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
+  background-color: rgba(254, 109, 115);
+  border-radius: 1rem;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 h1 {
-    font-size: 3em;
-    margin: 0;
+  font-size: 3em;
+  margin: 0;
 }
 
 .titleDiv {
-    text-align: center;
+  text-align: center;
 }
 
-
 .desc {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .section {
-    
-    background-color: rgba(254, 249, 239);
-    border: 0.5em solid rgba(254, 109, 115);
-    margin: 2%;
+  background-color: rgba(254, 249, 239);
+  border: 0.5em solid rgba(254, 109, 115);
+  margin: 2%;
 }
 
-
 .btnDiv {
-    margin: 10% 30%;
-} 
+  margin: 10% 30%;
+}
 
-    /* <!-- HTML !-->
+/* <!-- HTML !-->
 <button class="button-19" role="button">Button 19</button> */
-
 
 .signin {
   appearance: button;
-  background-color: #1899D6;
+  background-color: #1899d6;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: din-round,sans-serif;
+  font-family: din-round, sans-serif;
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   line-height: 20px;
   margin: 0;
   outline: none;
@@ -71,7 +65,7 @@ h1 {
   text-transform: uppercase;
   touch-action: manipulation;
   transform: translateZ(0);
-  transition: filter .2s;
+  transition: filter 0.2s;
   user-select: none;
   -webkit-user-select: none;
   vertical-align: middle;
@@ -86,7 +80,7 @@ h1 {
   border-radius: 16px;
   border-width: 0 0 4px;
   bottom: -4px;
-  content: "";
+  content: '';
   left: 0;
   position: absolute;
   right: 0;
@@ -105,7 +99,4 @@ h1 {
 
 .signin:disabled {
   cursor: auto;
-}    
-
-
-
+}
