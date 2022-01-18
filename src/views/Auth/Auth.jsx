@@ -1,7 +1,7 @@
 
 import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
-import { signInUser, signInUserGitHub } from '../../services/users';
+import { signInUser, signInUserGitHub, getUser, getSession } from '../../services/users';
 import Styles from './Auth.css'
 // cal fetch utils function to gain access to user data from back end response
 
