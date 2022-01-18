@@ -36,6 +36,10 @@ export default function Auth({ isSigningIn = false }) {
     }
   };
 
+  if(user) {
+    location.reload()
+  }
+
   return (
     <>
    

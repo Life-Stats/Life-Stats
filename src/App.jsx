@@ -19,9 +19,9 @@ function App() {
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route path='/login'>
+      <PrivateRoute path='/login'>
         <Auth />
-      </Route>
+      </PrivateRoute>
       <PrivateRoute path='/main'>
         <Main />
       </PrivateRoute>
