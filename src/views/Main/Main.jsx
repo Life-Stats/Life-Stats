@@ -18,7 +18,7 @@ export default function Main() {
   const [m, setMonth] = useState('');
   const [y, setYear] = useState('');
   const [show, setShow] = useState(true);
-  const [holiday, setHoliday] = useState('')
+  const [holiday, setHoliday] = useState('');
 
   let today = new Date();
   let todayYear = Number(today.getFullYear());
@@ -96,7 +96,7 @@ export default function Main() {
       setDay(d);
       setMonth(m);
       setYear(y);
-      setHoliday(await getHolidays(y, m, d))
+      setHoliday(await getHolidays(y, m, d));
       return [d, m, y];
     }
     setShow(false);
@@ -131,10 +131,8 @@ export default function Main() {
         </div>
       )}
 
-
       <section className={Styles.infoSection}>
-
-      <div  >
+        <div>
           {holiday ? (
             <p data-aos="fade-up">
               Did you know {`${holiday}`} lands on your birthday!?
@@ -163,7 +161,7 @@ export default function Main() {
             <>
               <p data-aos="fade-up">
                 You have blinked {`${totalBlinks}`} times!
-                <div class={Styles.hole}>
+                <div className={Styles.hole}>
                   <div className={Styles.face}>
                     <div className={Styles.eye}></div>
                     <div className={Styles.eye}></div>
