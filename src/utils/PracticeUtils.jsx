@@ -16,7 +16,7 @@ export async function getHolidays(y, m, d) {
 
 const findSign = (y, m, d) => {
   const days = ['', 20, 18, 20, 19, 20, 20, 22, 22, 22, 22, 21, 21, 20];
-  const signs = ['', "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", 'Capicorn'];
+  const signs = ['', "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", 'Capricorn'];
   let day = d.toString()
   console.log('DAY', day)
   let month = m.toString()
@@ -45,8 +45,8 @@ const horoscopeURL =
 
 
 const fetchHoroscope = await fetch(horoscopeURL);
-const data = await fetchHoroscope.text();
-console.log('Horoscope => ', data);
+const data = await fetchHoroscope.json();
+console.log('Horoscope => ', data.description);
 return data;
 };
 
