@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Header from './views/Header/Header';
 import Home from './views/Home/Home';
 import Auth from './views/Auth/Auth';
@@ -21,9 +22,9 @@ function App() {
       <Route exact path='/login'>
         <Auth />
       </Route>
-      <Route exact path='/main'>
+      <PrivateRoute exact path='/main'>
         <Main />
-      </Route>
+      </PrivateRoute>
       <Route exact path='/about'>
         <AboutUs/>
       </Route>
