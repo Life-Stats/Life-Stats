@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AboutUs view 1`] = `
+<div>
+  <div>
+    <p>
+      Go back 
+      <a
+        href="/"
+      >
+         Home
+      </a>
+       
+    </p>
+    <h1>
+      About Us view
+    </h1>
+    <section
+      class="section"
+    >
+      <div
+        class="left"
+      >
+        <img
+          src="/path/image"
+        />
+        <p
+          class="text"
+        >
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, repellendus praesentium. Quam nobis, non aperiam sint aut possimus dolorem, beatae, cum vel sunt saepe ad nostrum eius expedita eum nulla!
+        </p>
+      </div>
+      <div
+        class="right"
+      >
+        <p
+          class="text"
+        >
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, repellendus praesentium. Quam nobis, non aperiam sint aut possimus dolorem, beatae, cum vel sunt saepe ad nostrum eius expedita eum nulla!
+        </p>
+        <img
+          src="/path/image"
+        />
+      </div>
+      <div
+        class="left"
+      >
+        <img
+          src="/path/image"
+        />
+        <p
+          class="text"
+        >
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, repellendus praesentium. Quam nobis, non aperiam sint aut possimus dolorem, beatae, cum vel sunt saepe ad nostrum eius expedita eum nulla!
+        </p>
+      </div>
+      <div
+        class="right"
+      >
+        <p
+          class="text"
+        >
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, repellendus praesentium. Quam nobis, non aperiam sint aut possimus dolorem, beatae, cum vel sunt saepe ad nostrum eius expedita eum nulla!
+        </p>
+        <img
+          src="/path/image"
+        />
+      </div>
+    </section>
+  </div>
+</div>
+`;
