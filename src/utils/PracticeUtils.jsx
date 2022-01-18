@@ -37,17 +37,15 @@ const findSign = (y, m, d) => {
 
 export async function getHoroscope(y, m, d) {
   console.log(y, m, d)
- const sign = await findSign(y, m, d); 
-  
- 
-const horoscopeURL =
-`https://aztro.sameerkumar.website/?sign=${sign}&day=today`;
+  const sign = await findSign(y, m, d); 
+  const horoscopeURL =
+  `https://aztro.sameerkumar.website/?sign=${sign}&day=today`;
 
 
-const fetchHoroscope = await fetch(horoscopeURL);
-const data = await fetchHoroscope.json();
-console.log('Horoscope => ', data.description);
-return data.description;
+  const fetchHoroscope = await fetch(horoscopeURL);
+  const data = await fetchHoroscope.json();
+  console.log('Horoscope => ', data.description);
+  return data.description;
 };
 
 
