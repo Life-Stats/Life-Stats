@@ -8,6 +8,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.location.href = 'https://pedantic-pasteur-453987.netlify.app/login';
   }
 
   return (
