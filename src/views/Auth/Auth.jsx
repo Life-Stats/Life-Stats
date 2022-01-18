@@ -11,7 +11,7 @@ export default function Auth({ isSigningIn = false }) {
     try {
       //services need to put in BE and make call to talk to Supabase
       // if they are signing up
-        const user = await signInUser();
+        await signInUser();
         if (auth.user.email) return <Redirect to="/main" />;
 
         console.log('user', user);
