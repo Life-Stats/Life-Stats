@@ -19,7 +19,6 @@ export function getSession() {
   },
   {
     redirectTo: 'https://pedantic-pasteur-453987.netlify.app/main'
-
   }
   );
   if (error) throw error;

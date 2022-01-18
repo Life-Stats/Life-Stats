@@ -1,18 +1,22 @@
 
+import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { signInUser, signInUserGitHub } from '../../services/users';
 import Styles from './Auth.css'
 // cal fetch utils function to gain access to user data from back end response
 
 export default function Auth({ isSigningIn = false }) {
-  const auth = useUser();
+  const history = useHistory();
+  const { setUser } = useUser();
 
   const handleSubmit = async () => {
     try {
       //services need to put in BE and make call to talk to Supabase
       // if they are signing up
-        await signInUser();
-        if (auth.user.email) return <Redirect to="/main" />;
+        const user = await signInUser();
+        setUser(user);
+        console.log(user);
+        // if (user.email) return <Redirect to="/main" />;
 
         console.log('user', user);
     } catch (error) {
