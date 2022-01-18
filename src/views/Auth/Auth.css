@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* text-align: center; */
+    text-align: center;
     min-height: 30vh;
     padding: 5%;
     margin: 5% 18%

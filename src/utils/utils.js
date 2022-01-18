@@ -1,4 +1,5 @@
 // const backendURL = 'http://localhost:7890/';
+<<<<<<< HEAD
 import fetch from 'node-fetch';
 
 export async function getFake(date) {
@@ -17,6 +18,9 @@ export async function getFake(date) {
 
   return response.json();
 }
+=======
+// import fetch from 'node-fetch';
+>>>>>>> 5312bf7602020908fe1d73a524fb27eacde610a2
 
 // export async function getSignUpUser(signUpInfo) {
 //   const authURL = 'http://localhost:7890/api/v1/auth/signup';

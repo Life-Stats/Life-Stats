@@ -1,6 +1,6 @@
-body {
+ body {
     background-color: rgb(254, 249, 239);
-    background-image: url('https://live.staticflickr.com/65535/51273433684_c439bd486c_b.jpg');
+    /* background-image: url('https://live.staticflickr.com/65535/51273433684_c439bd486c_b.jpg'); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -42,12 +42,12 @@ h1 {
 
 .btnDiv {
     margin: 10% 30%;
-}
+} 
 
     /* <!-- HTML !-->
 <button class="button-19" role="button">Button 19</button> */
 
-/* CSS */
+
 .signin {
   appearance: button;
   background-color: #1899D6;
@@ -105,7 +105,7 @@ h1 {
 
 .signin:disabled {
   cursor: auto;
-}
+}    
 
 
 
