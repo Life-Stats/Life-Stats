@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
+import { getHolidays } from '../../utils/PracticeUtils.jsx';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -17,6 +18,7 @@ export default function Main() {
   const [m, setMonth] = useState('');
   const [y, setYear] = useState('');
   const [show, setShow] = useState(true);
+  const [holiday, setHoliday] = useState('')
 
   let today = new Date();
   let todayYear = Number(today.getFullYear());
@@ -82,10 +84,10 @@ export default function Main() {
 
   const x = show;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    function mungedDate(date) {
+    async function mungedDate(date) {
       let newDate = date;
       let splitDate = newDate.split('-'); // ex: ['2022', '11', '03']
       let d = Number(splitDate.reverse()[0]); // ex: ['01', '10', '1988']
@@ -94,6 +96,7 @@ export default function Main() {
       setDay(d);
       setMonth(m);
       setYear(y);
+      setHoliday(await getHolidays(y, m, d))
       return [d, m, y];
     }
     setShow(false);
@@ -131,7 +134,17 @@ export default function Main() {
         </div>
       )}
 
+
       <section className={Styles.infoSection}>
+
+      <div  >
+          {holiday ? (
+            <p data-aos="fade-up">
+              Did you know {`${holiday}`} lands on your birthday!?
+            </p>
+          ) : null}
+        </div>
+
         <div>
           {breathsState ? (
             <p data-aos="fade-left">You've taken {`${newTotalBreaths}`} breaths!</p>

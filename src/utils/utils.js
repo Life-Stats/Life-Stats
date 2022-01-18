@@ -1,22 +1,5 @@
 // const backendURL = 'http://localhost:7890/';
-import fetch from 'node-fetch';
-
-export async function getFake(date) {
-  const authURL = 'http://localhost:7890/api/v1/practice';
-  const response = await fetch(authURL, {
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(date),
-  });
-  console.log('res', response);
-  // localStorage.setItem('TOKEN', JSON.stringify(data.token));
-
-  return await response.json();
-}
+// import fetch from 'node-fetch';
 
 // export async function getSignUpUser(signUpInfo) {
 //   const authURL = 'http://localhost:7890/api/v1/auth/signup';
