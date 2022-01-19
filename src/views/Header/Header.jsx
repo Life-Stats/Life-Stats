@@ -1,17 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { signOutUser } from '../../services/users'
 import Styles  from './Header.css'
 
 export default function Header() {
     const history = useHistory();
+    const location = useLocation();
+    const {from} = location.state || {from: {pathname: '/'}}
 
-
-    function handleClick() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         signOutUser()
-        history.push('/')
-    }
+        history.replace(from.pathname)
+        // history.push('/');
+    };
 
     return (
         <>
@@ -34,7 +38,7 @@ export default function Header() {
 
             </nav>
             <section className={Styles.aboutSect}>
-            <button onClick={handleClick}>Sign Out</button>
+            <button onClick={handleSubmit}>Sign Out</button>
 
             </section>
             <section className={Styles.signSect}>
