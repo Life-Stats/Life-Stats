@@ -8,11 +8,11 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!auth.user.email) {
-      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/login';
-
+    if(auth) {
+      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/main';
+      
     } else {
-      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/main'
+      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/login';
     }
   }
 
