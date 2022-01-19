@@ -23,6 +23,16 @@ export default function Header() {
     
         </section>
         <div className={Styles.signinTitle}>
+            <nav className={Styles.nav}>
+                <label className={Styles.logo}>Life Stats</label>
+                <ul>
+                    <li><a href=''>Home</a></li>
+                    <li><a href=''>About Us</a></li>
+                    <li><a href='' onClick={handleClick}>Sign out</a></li>
+                </ul>
+
+
+            </nav>
             <section className={Styles.aboutSect}>
             <button onClick={handleClick}>Sign Out</button>
 
