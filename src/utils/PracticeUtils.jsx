@@ -1,6 +1,6 @@
 // const fetch = require('node-fetch-commonjs');
 
-export async function getHolidays(y, m, d) {
+export async function getHolidays(date) {
   // const url = 'https://life-stats-app.herokuapp.com/api/v1/holiday'; // deployed Heroku URL
   const url = 'http://localhost:7890/api/v1/holiday';
   const response = await fetch(url, {
@@ -10,12 +10,27 @@ export async function getHolidays(y, m, d) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(y, m, d) 
+    body: JSON.stringify(date) 
   });
   return response.json(); 
 };
-
 //--------------------- 
+
+export async function getMainData(date) {
+  // const url = 'https://life-stats-app.herokuapp.com/api/v1/holiday'; // deployed Heroku URL
+  const url = 'http://localhost:7890/api/v1/main';
+  const response = await fetch(url, {
+
+    method: 'POST', 
+    credentials: 'same-origin', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(date) 
+  });
+  return response.json(); 
+};
+//---------------------
 
 const findSign = (y, m, d) => {
   const days = ['', 20, 18, 20, 19, 20, 20, 22, 22, 22, 22, 21, 21, 20];

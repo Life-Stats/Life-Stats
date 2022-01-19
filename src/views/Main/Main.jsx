@@ -3,6 +3,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays, getHoroscope } from '../../utils/PracticeUtils.jsx';
+import { getMainData } from '../../utils/PracticeUtils.jsx';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -87,27 +88,16 @@ export default function Main() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // async function mungedDate(date) {
-    //   let newDate = date;
-    //   let splitDate = newDate.split('-'); // ex: ['2022', '11', '03']
-    //   let d = Number(splitDate.reverse()[0]); // ex: ['01', '10', '1988']
-    //   let m = Number(splitDate.reverse()[1]); // ex: ['01', '10', '1988']
-    //   let y = Number(splitDate.reverse()[2]); // ex: ['01', '10', '1988']
-    //   setDay(d);
-    //   setMonth(m);
-    //   setYear(y);
-    //   setHoliday(await getHolidays(y, m, d));
-    //   setHoroscope(await getHoroscope(y, m, d));
-    //   return [d, m, y];
-    // }
+    // setHoroscope(await getHoroscope(date));
     setShow(false);
-    setBreathsState(mungedDate(date));
-    setHeartBeats(mungedDate(date));
-    setBlinks(mungedDate(date));
-    setYearsAsleep(mungedDate(date));
-    setDreamDays(mungedDate(date));
-    setGlobalExtinction(mungedDate(date));
+    setHoliday(await getHolidays(date));
+    setBreathsState(await getMainData(date));
+    setHeartBeats(await getMainData(date));
+    setBlinks(await getMainData(date));
+    setYearsAsleep(await getMainData(date));
+    setDreamDays(await getMainData(date));
+    setGlobalExtinction(await getMainData(date));
+    console.log()
   };
 
   useEffect(() => {
