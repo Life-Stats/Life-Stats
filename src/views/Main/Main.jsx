@@ -4,6 +4,7 @@ import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
+import { numberWithCommas } from '../../utils/utils';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -16,9 +17,9 @@ export default function Main() {
   const [dreamDays, setDreamDays] = useState('');
   const [globalExtinction, setGlobalExtinction] = useState();
   const [show, setShow] = useState(true);
-  const [holiday, setHoliday] = useState()
+  const [holiday, setHoliday] = useState();
+  const [hairGrowth, setHairGrowth] = useState('');
   // const [horoscope, setHoroscope] = useState('');
-
 
   useEffect(() => {
     Aos.init({ duration: 3000 });
@@ -27,28 +28,31 @@ export default function Main() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-   
+
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
 
     const breathTotal = allObjectsData.newTotalBreaths;
-    setBreathsState(breathTotal);
+    setBreathsState(numberWithCommas(breathTotal));
 
     const finalHeartBeats = allObjectsData.totalHeartBeats;
-    setHeartBeats(finalHeartBeats);
-    
+    setHeartBeats(numberWithCommas(finalHeartBeats));
+
     const finalYearsAsleep = allObjectsData.totalYearsAsleep;
-    setYearsAsleep(finalYearsAsleep);
+    setYearsAsleep(numberWithCommas(finalYearsAsleep));
 
     const finalBlinks = allObjectsData.totalBlinks;
-    setBlinks(finalBlinks);
+    setBlinks(numberWithCommas(finalBlinks));
 
     const finalDreamDays = allObjectsData.totalDreamDays;
-    setDreamDays(finalDreamDays);
-    
+    setDreamDays(numberWithCommas(finalDreamDays));
+
     const finalExtinctRate = allObjectsData.totalExtinct;
-    setGlobalExtinction(finalExtinctRate);
+    setGlobalExtinction(numberWithCommas(finalExtinctRate));
+
+    const finalHairGrowth = allObjectsData.totalHairGrowth;
+    setHairGrowth(finalHairGrowth);
   };
 
   return (
@@ -97,9 +101,7 @@ export default function Main() {
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">
-            You have blinked {`${blinks}`} times!
-            </p>
+            <p data-aos="fade-up">You have blinked {`${blinks}`} times!</p>
           ) : null}
         </div>
 
@@ -107,7 +109,6 @@ export default function Main() {
           {yearsAsleep ? (
             <p data-aos="fade-up">
               {`${yearsAsleep}`} years of your life has been spent asleep!
-              
             </p>
           ) : null}
         </div>
@@ -123,19 +124,26 @@ export default function Main() {
         <div>
           {globalExtinction ? (
             <p data-aos="fade-up">
-              Some estimated up to {`${globalExtinction}`} species of animal life
-              have since gone extinct..
+              Some estimated up to {`${globalExtinction}`} species of animal
+              life have since gone extinct..
             </p>
           ) : null}
         </div>
-        
+
+        <div>
+          {hairGrowth ? (
+            <p data-aos="fade-up">
+              Your hair has grown {`${hairGrowth}`} feet! Since you were born.
+            </p>
+          ) : null}
+        </div>
+
         {/* <div>
           {horoscope ? (
             <p data-aos="fade-up">
             Here is a reading: {`${horoscope}`}</p>
           ) : null}
         </div> */}
-
       </section>
     </>
   );
