@@ -1,11 +1,11 @@
 import { Link, Redirect } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useUser } from '../../context/UserContext';
 import Styles from './Home.css';
 
 export default function Home() {
   const auth = useUser(); //make a call to BE for useUser
-  const [user, setUser] = useState('');
+  // const [user, setUser] = useState('');
   if (auth.user.email){
     setUser(auth)
     return <Redirect to="/main" />;
@@ -38,7 +38,7 @@ export default function Home() {
           </p>
 
           <div className={Styles.btnDiv}>
-            {user ? (
+            {auth ? (
               <button onClick={handleSubmit} className={Styles.signin}>
                 PLAY
               </button>
