@@ -9,10 +9,10 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(auth) {
-      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/main'
+      window.location.href = 'http://localhost:7891/main'
       
     } else {
-      window.location.href = 'https://pedantic-pasteur-453987.netlify.app/login';
+      window.location.href = 'http://localhost:7891/login';
     }
   }
 
