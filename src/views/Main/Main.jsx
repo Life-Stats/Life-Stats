@@ -2,107 +2,54 @@ import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
-import { getHolidays, getHoroscope } from '../../utils/PracticeUtils.jsx';
+import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
 export default function Main() {
-  // const [date, setDate] = useState('');
-  // const [breathsState, setBreathsState] = useState();
-  // const [heartBeats, setHeartBeats] = useState();
-  // const [blinks, setBlinks] = useState();
-  // const [yearsAsleep, setYearsAsleep] = useState();
-  // const [dreamDays, setDreamDays] = useState();
-  // const [globalExtinction, setGlobalExtinction] = useState();
-  // const [d, setDay] = useState('');
-  // const [m, setMonth] = useState('');
-  // const [y, setYear] = useState('');
-  // const [show, setShow] = useState(true);
-  // const [holiday, setHoliday] = useState('')
+  const [date, setDate] = useState('');
+  const [breathsState, setBreathsState] = useState('');
+  const [heartBeats, setHeartBeats] = useState('');
+  const [blinks, setBlinks] = useState();
+  const [yearsAsleep, setYearsAsleep] = useState('');
+  const [dreamDays, setDreamDays] = useState('');
+  const [globalExtinction, setGlobalExtinction] = useState();
+  const [show, setShow] = useState(true);
+  const [holiday, setHoliday] = useState()
   // const [horoscope, setHoroscope] = useState('');
 
-  // let today = new Date();
-  // let todayYear = Number(today.getFullYear());
-  // let todayMonth = Number(today.getMonth() + 1);
-  // let todayDay = Number(today.getDate());
-
-  // const dailySeconds = 86400;
-  // const breathsPerSecond = 0.267;
-  // const heartBeatsPerSecond = 1.3;
-  // const blinksPerSecond = 0.225;
-  // //   const monthlySeconds = 2628288;
-  // //   const yearlySeconds = 31536000;
-
-  // class DateCon {
-  //   constructor(d, m, y) {
-  //     this.d = d;
-  //     this.m = m;
-  //     this.y = y;
-  //   }
-  // }
-
-  // let monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-  // function countLeapYears(d) {
-  //   let years = d.y;
-
-  //   if (d.m <= 2) {
-  //     years--;
-  //   }
-  //   return (
-  //     Math.floor(years / 4) - Math.floor(years / 100) + Math.floor(years / 400)
-  //   );
-  // }
-
-  // function getDifference(dt1, dt2) {
-  //   let n1 = dt1.y * 365 + dt1.d;
-
-  //   for (let i = 0; i < dt1.m - 1; i++) {
-  //     n1 += monthDays[i];
-  //   }
-  //   n1 += countLeapYears(dt1);
-
-  //   let n2 = dt2.y * 365 + dt2.d;
-  //   for (let i = 0; i < dt2.m - 1; i++) {
-  //     n2 += monthDays[i];
-  //   }
-  //   n2 += countLeapYears(dt2);
-  //   return n2 - n1;
-  // }
-
-  // let dt1 = new DateCon(d, m, y);
-  // let dt2 = new DateCon(todayDay, todayMonth, todayYear);
-  // const totalNumOfDays = getDifference(dt1, dt2);
-
-  // const newTotalBreaths = Math.floor(
-  //   totalNumOfDays * dailySeconds * breathsPerSecond
-  // );
-  // const totalHeartBeats = totalNumOfDays * dailySeconds * heartBeatsPerSecond;
-  // const totalBlinks = totalNumOfDays * dailySeconds * blinksPerSecond;
-  // const totalDreamDays = Math.ceil((totalNumOfDays * 2) / 24);
-  // const totalYearsAsleep = (totalNumOfDays / 3 / 365).toFixed(2);
-  // const totalExtinct = totalNumOfDays * 150;
-
-  const x = show;
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // setHoroscope(await getHoroscope(date));
-    setShow(false);
-    setHoliday(await getHolidays(date));
-    setBreathsState(await getMainData(date));
-    setHeartBeats(await getMainData(date));
-    setBlinks(await getMainData(date));
-    setYearsAsleep(await getMainData(date));
-    setDreamDays(await getMainData(date));
-    setGlobalExtinction(await getMainData(date));
-    console.log()
-  };
 
   useEffect(() => {
     Aos.init({ duration: 3000 });
   }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // setHoroscope(await getHoroscope(date));
+   
+    setShow(false);
+    setHoliday(await getHolidays(date));
+    const allObjectsData = await getMainData(date);
+
+    const breathTotal = allObjectsData.newTotalBreaths;
+    setBreathsState(breathTotal);
+
+    const finalHeartBeats = allObjectsData.totalHeartBeats;
+    setHeartBeats(finalHeartBeats);
+    
+    const finalYearsAsleep = allObjectsData.totalYearsAsleep;
+    setYearsAsleep(finalYearsAsleep);
+
+    const finalBlinks = allObjectsData.totalBlinks;
+    setBlinks(finalBlinks);
+
+    const finalDreamDays = allObjectsData.totalDreamDays;
+    setDreamDays(finalDreamDays);
+    
+    const finalExtinctRate = allObjectsData.totalExtinct;
+    setGlobalExtinction(finalExtinctRate);
+  };
 
   return (
     <>
@@ -135,7 +82,7 @@ export default function Main() {
         <div>
           {breathsState ? (
             <p data-aos="fade-left">
-              You've taken {`${newTotalBreaths}`} breaths!
+              You've taken {`${breathsState}`} breaths!
             </p>
           ) : null}
         </div>
@@ -143,21 +90,24 @@ export default function Main() {
         <div>
           {heartBeats ? (
             <p data-aos="fade-right">
-              You're heart has beaten {`${totalHeartBeats}`} times!
+              You're heart has beaten {`${heartBeats}`} times!
             </p>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">You have blinked {`${totalBlinks}`} times!</p>
+            <p data-aos="fade-up">
+            You have blinked {`${blinks}`} times!
+            </p>
           ) : null}
         </div>
 
         <div>
           {yearsAsleep ? (
             <p data-aos="fade-up">
-              {`${totalYearsAsleep}`} years of your life has been spent asleep!
+              {`${yearsAsleep}`} years of your life has been spent asleep!
+              
             </p>
           ) : null}
         </div>
@@ -165,8 +115,7 @@ export default function Main() {
         <div>
           {dreamDays ? (
             <p data-aos="fade-up">
-              {`${totalDreamDays}`} days of your life has been spent just
-              dreaming!
+              {`${dreamDays}`} days of your life has been spent just dreaming!
             </p>
           ) : null}
         </div>
@@ -174,17 +123,19 @@ export default function Main() {
         <div>
           {globalExtinction ? (
             <p data-aos="fade-up">
-              Some estimated total {`${totalExtinct}`} species of animal life
+              Some estimated up to {`${globalExtinction}`} species of animal life
               have since gone extinct..
             </p>
           ) : null}
         </div>
-
-        <div>
+        
+        {/* <div>
           {horoscope ? (
-            <p data-aos="fade-up">Here is a reading: {`${horoscope}`}</p>
+            <p data-aos="fade-up">
+            Here is a reading: {`${horoscope}`}</p>
           ) : null}
-        </div>
+        </div> */}
+
       </section>
     </>
   );

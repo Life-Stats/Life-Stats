@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "jest": {
     "setupFiles": [
-"./someModuleForTest.js"
+      "./someModuleForTest.js"
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",
