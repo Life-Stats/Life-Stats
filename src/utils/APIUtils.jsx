@@ -1,18 +1,21 @@
 // const fetch = require('node-fetch-commonjs');
 
 export async function getHolidays(y, m, d) {
-    console.log('date', y, m, d)
-    let day = d.toString()
-    let mon = m.toString()
-    let year= y.toString()
-  const holidayURL =
-  `https://calendarific.com/api/v2/holidays?api_key=5569725de1b2efd0a970fb8ea04cca422a8f6af2&country=US&year=${year}&month=${mon}&day=${day}`;
+  // const url = 'https://life-stats-app.herokuapp.com/api/v1/holiday'; // deployed Heroku URL
+  const url = 'http://localhost:7890/api/v1/holiday';
+  const response = await fetch(url, {
 
-  const fetchHoliday = await fetch(holidayURL);
-  const data = await fetchHoliday.json();
-  console.log('Holiday => ', data.response.holidays[0].name);
-  return data.response.holidays[0].name;
+    method: 'POST', 
+    credentials: 'same-origin', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(y, m, d) 
+  });
+  return response.json(); 
 };
+
+//--------------------- 
 
 const findSign = (y, m, d) => {
   const days = ['', 20, 18, 20, 19, 20, 20, 22, 22, 22, 22, 21, 21, 20];
