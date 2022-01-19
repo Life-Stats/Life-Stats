@@ -16,7 +16,7 @@ export function getSession() {
   
   const { user, session, error } = await client.auth.signIn({ 
     provider: 'google'
-  }, redirect_to="/main"
+  }
   );
   if (error) throw error;
   return user;
