@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { signOutUser } from '../../services/users'
 import Styles  from './Header.css'
 
 export default function Header() {
     const history = useHistory();
-
+    const location = useLocation();
+    const {from} = location.state || {from: {pathname: '/'}}
 
     function handleClick() {
         signOutUser()
-        history.push('/')
-    }
+        history.replace(from.pathname)
+    };
 
     return (
         <>
