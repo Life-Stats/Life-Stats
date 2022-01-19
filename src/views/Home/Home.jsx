@@ -6,8 +6,8 @@ import Styles from './Home.css';
 export default function Home() {
   const auth = useUser(); //make a call to BE for useUser
   const [user, setUser] = useState('');
-  setUser(auth);
   if (auth.user.email){
+    setUser(auth)
     return <Redirect to="/main" />;
   } 
 
