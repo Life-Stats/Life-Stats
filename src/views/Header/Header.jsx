@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom';
 import { signOutUser } from '../../services/users'
 import Styles  from './Header.css'
