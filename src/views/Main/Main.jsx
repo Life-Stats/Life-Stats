@@ -40,7 +40,7 @@ export default function Main() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-    
+
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
@@ -100,8 +100,17 @@ export default function Main() {
 
         <div>
           {breathsState ? (
-            <p data-aos="fade-left">
+            <p data-aos="fade-left" className="breathp">
               You've taken {`${breathsState.toLocaleString()}`} breaths!
+              <div className="breathbox">
+                <div className={Styles.breathface}>
+                  <div className={Styles.eye} />
+                  <div className={Styles.eye} />
+                </div>
+                <div className={Styles.breathbottomface}>
+                  <div className={Styles.mouth} />
+                </div>
+              </div>
             </p>
           ) : null}
         </div>
@@ -110,15 +119,22 @@ export default function Main() {
           {heartBeats ? (
             <p data-aos="fade-right">
               You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
+              <div className={Styles.heart}></div>
             </p>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">
-              You have blinked {`${blinks.toLocaleString()}`} times!
-            </p>
+            <>
+              <p data-aos="fade-up">
+                You have blinked {`${blinks.toLocaleString()}`} times!
+                <div className={Styles.face}>
+                  <div className={Styles.eye} />
+                  <div className={Styles.eye} />
+                </div>
+              </p>
+            </>
           ) : null}
         </div>
 
@@ -133,7 +149,8 @@ export default function Main() {
         <div>
           {dreamDays ? (
             <p data-aos="fade-up">
-              {`${dreamDays.toLocaleString()}`} days of your life has been spent just dreaming!
+              {`${dreamDays.toLocaleString()}`} days of your life has been spent
+              just dreaming!
             </p>
           ) : null}
         </div>
