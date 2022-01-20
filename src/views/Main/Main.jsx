@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
-import { numberWithCommas } from '../../utils/utils';
+import { useMain } from '../../context/MainContext';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -19,29 +20,46 @@ export default function Main() {
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
-  const [name, setName] = useState('');
+  const { name, setName } = useMain();
+  const [loopBlinks, setLoopBlinks] = useState()
+  const [loopBeats, setLoopBeats] = useState()
+  const [loopBreaths, setLoopBreaths] = useState()
+
   // const [horoscope, setHoroscope] = useState('');
 
   useEffect(() => {
     Aos.init({ duration: 3000 });
   }, []);
 
-  function ticker() {
-    setInterval(() => {
-      setBlinks((prevState) => prevState + 1);
-    }, 3000);
-    setInterval(() => {
-      setHeartBeats((prevState) => prevState + 1);
-    }, 900);
-    setInterval(() => {
-      setBreathsState((prevState) => prevState + 1);
-    }, 3000);
+  useEffect(() => {
+      if(breathsState !== "" && heartBeats !== "" && blinks !== "") {
+        setInterval(() => {
+          setBlinks((prevState) => prevState + 1);
+        }, 3000);
+  
+        setInterval(() => {
+          setHeartBeats((prevState) => prevState + 1);
+        }, 900);
+  
+        setInterval(() => {
+          setBreathsState((prevState) => prevState + 1);
+        }, 3000);
+      } else {
+        handleClearInterval()
+      }
+  }, [])
+
+
+  const handleClearInterval = () => {
+    clearInterval(loopBlinks)
+    clearInterval(loopBreaths)
+    clearInterval(loopBeats)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-    ticker();
+    // ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
@@ -99,7 +117,15 @@ export default function Main() {
         </div>
       )}
 
+  
+
+
       <section className={Styles.infoSection}>
+
+        <div>
+          <Link to='/print' onClick={handleClearInterval}>print stats!</Link> 
+        </div>
+
         <div>
           {holiday ? (
             <p aria-label="holiday" data-aos="fade-up">

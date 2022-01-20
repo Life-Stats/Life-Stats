@@ -6,31 +6,45 @@ import Home from './views/Home/Home';
 import Auth from './views/Auth/Auth';
 import AboutUs from './views/About/AboutUs';
 import Main from './views/Main/Main';
+import PrintStats from './views/Print/PrintStats';
 // import ConfirmEmail from './views/Confirm/Confirm'
 import { UserProvider } from './context/UserContext';
+import { MainProvider } from './context/MainContext';
+
 
 function App() {
   return (
     <>
   <UserProvider>
-   <Router>
+    <MainProvider>
+
+    <Router>
       <Header />
-   <Switch>
-      <Route exact path='/'>
-        <Home />
-      </Route>
-      <Route path='/login'>
-        <Auth />
-      </Route>
-      <PrivateRoute path='/main'>
-        <Main />
-      </PrivateRoute>
-      <Route path='/about'>
-        <AboutUs/>
-      </Route>
-   </Switch>
-   </Router>
-   </UserProvider>
+
+    <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/login'>
+          <Auth />
+        </Route>
+        <PrivateRoute path='/main'>
+          <Main />
+        </PrivateRoute>
+        <PrivateRoute path='/print'>
+          <PrintStats />
+        </PrivateRoute>
+        <Route path='/about'>
+          <AboutUs/>
+        </Route>
+    </Switch>
+
+    </Router>
+
+    </MainProvider>
+  </UserProvider>
+   
+   
    </>
   )
 }
