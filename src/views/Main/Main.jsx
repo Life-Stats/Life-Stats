@@ -12,7 +12,8 @@ export default function Main() {
   const [date, setDate] = useState('');
   const [breathsState, setBreathsState] = useState('');
   const [heartBeats, setHeartBeats] = useState('');
-  const [blinks, setBlinks] = useState();
+  const [blinks, setBlinks] = useState(0);
+  const [blinksState, setBlinksState] = useState();
   const [yearsAsleep, setYearsAsleep] = useState('');
   const [dreamDays, setDreamDays] = useState('');
   const [globalExtinction, setGlobalExtinction] = useState();
@@ -25,6 +26,18 @@ export default function Main() {
     Aos.init({ duration: 3000 });
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      setBlinks((prevState) => prevState + 1);
+    }, 3000);
+    setInterval(() => {
+      setHeartBeats((prevState) => prevState + 1);
+    }, 900);
+    setInterval(() => {
+      setBreathsState((prevState) => prevState + 1);
+    }, 3000);
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
@@ -34,22 +47,23 @@ export default function Main() {
     const allObjectsData = await getMainData(date);
 
     const breathTotal = allObjectsData.newTotalBreaths;
-    setBreathsState(numberWithCommas(breathTotal));
+    setBreathsState(breathTotal);
 
     const finalHeartBeats = allObjectsData.totalHeartBeats;
-    setHeartBeats(numberWithCommas(finalHeartBeats));
+    setHeartBeats(finalHeartBeats);
 
     const finalYearsAsleep = allObjectsData.totalYearsAsleep;
-    setYearsAsleep(numberWithCommas(finalYearsAsleep));
+    setYearsAsleep(finalYearsAsleep);
 
     const finalBlinks = allObjectsData.totalBlinks;
-    setBlinks(numberWithCommas(finalBlinks));
+    setBlinks(finalBlinks);
+    console.log(typeof finalBlinks);
 
     const finalDreamDays = allObjectsData.totalDreamDays;
-    setDreamDays(numberWithCommas(finalDreamDays));
+    setDreamDays(finalDreamDays);
 
     const finalExtinctRate = allObjectsData.totalExtinct;
-    setGlobalExtinction(numberWithCommas(finalExtinctRate));
+    setGlobalExtinction(finalExtinctRate);
 
     const finalHairGrowth = allObjectsData.totalHairGrowth;
     setHairGrowth(finalHairGrowth);
@@ -86,7 +100,7 @@ export default function Main() {
         <div>
           {breathsState ? (
             <p data-aos="fade-left">
-              You've taken {`${breathsState}`} breaths!
+              You've taken {`${breathsState.toLocaleString()}`} breaths!
             </p>
           ) : null}
         </div>
@@ -94,14 +108,16 @@ export default function Main() {
         <div>
           {heartBeats ? (
             <p data-aos="fade-right">
-              You're heart has beaten {`${heartBeats}`} times!
+              You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
             </p>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">You have blinked {`${blinks}`} times!</p>
+            <p data-aos="fade-up">
+              You have blinked {`${blinks.toLocaleString()}`} times!
+            </p>
           ) : null}
         </div>
 
