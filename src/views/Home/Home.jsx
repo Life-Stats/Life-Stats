@@ -10,9 +10,13 @@ export default function Home() {
     e.preventDefault();
     if(auth) {
       window.location.href = 'http://localhost:7891/main'
+      // change to pademendic pastures/main, etc when ready to fully deploy
+      // make sure to change utils route call to heroku too !!!!!!!
       
     } else {
       window.location.href = 'http://localhost:7891/login';
+      // change to pademendic pastures/login, etc when ready to fully deploy
+      // make sure to change utils route call to heroku too!!!!!!!!!!
     }
   }
 

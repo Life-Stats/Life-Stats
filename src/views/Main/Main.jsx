@@ -105,11 +105,19 @@ export default function Main() {
           ) : null}
         </div>
 
+
         <div>
           {heartBeats ? (
+            <>
+
             <p data-aos="fade-right">
+            {/* https://giphy.com/gifs/wordpressdotcom-wordpress-3JUsda8zZiFvQD0ioo */}
+        <div style={{ width: '100%', height: '0', paddingBottom: '100%', position: 'relative' }}>
+        {<iframe src="https://giphy.com/embed/3JUsda8zZiFvQD0ioo" width="200px" height="200px" style={{position: 'absolute'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>}
+        </div>
               You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
             </p>
+          </>
           ) : null}
         </div>
 
