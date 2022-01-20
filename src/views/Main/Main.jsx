@@ -13,10 +13,9 @@ export default function Main() {
   const [breathsState, setBreathsState] = useState('');
   const [heartBeats, setHeartBeats] = useState('');
   const [blinks, setBlinks] = useState(0);
-  const [blinksState, setBlinksState] = useState();
   const [yearsAsleep, setYearsAsleep] = useState('');
   const [dreamDays, setDreamDays] = useState('');
-  const [globalExtinction, setGlobalExtinction] = useState();
+  const [globalExtinction, setGlobalExtinction] = useState('');
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
@@ -81,7 +80,7 @@ export default function Main() {
               value={date}
               onChange={(event) => setDate(event.target.value)}
             />
-            <button type="submit" value="submit">
+            <button aria-label="button" type="submit" value="submit">
               {show ? 'Submit' : 'Not'}
             </button>
           </form>
@@ -91,7 +90,7 @@ export default function Main() {
       <section className={Styles.infoSection}>
         <div>
           {holiday ? (
-            <p data-aos="fade-up">
+            <p aria-label="holiday" data-aos="fade-up">
               Did you know {`${holiday}`} lands on your birthday!?
             </p>
           ) : null}
@@ -140,8 +139,8 @@ export default function Main() {
         <div>
           {globalExtinction ? (
             <p data-aos="fade-up">
-              Some estimated up to {`${globalExtinction}`} species of animal
-              life have since gone extinct..
+              Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
+              species of animal life have since gone extinct..
             </p>
           ) : null}
         </div>
@@ -158,27 +157,9 @@ export default function Main() {
           {horoscope ? (
             <p data-aos="fade-up">
             Here is a reading: {`${horoscope}`}</p>
-          ) : null}
-        </div> */}
+            ) : null}
+          </div> */}
       </section>
     </>
   );
 }
-
-// This function below handles running timer implementation..
-// let count = 3000; // count value will be related to after munged number date calc
-//  const counter=setInterval(timer, 1000); //1000 will run it every 1 second
-
-// function timer()
-// {
-//   count=count+1;
-//   if (count <= 0)
-//   {
-//      clearInterval(counter);
-//      //counter ended, do something here
-//      return;
-//   }
-//   //Do code for showing the number of seconds here
-//     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
-// } // NOTE: timer ^ is id in HTML
-// timer()
