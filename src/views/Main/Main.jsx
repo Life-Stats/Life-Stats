@@ -19,6 +19,7 @@ export default function Main() {
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
+  const [name, setName] = useState('');
   // const [horoscope, setHoroscope] = useState('');
 
   useEffect(() => {
@@ -66,13 +67,24 @@ export default function Main() {
 
     const finalHairGrowth = allObjectsData.totalHairGrowth;
     setHairGrowth(finalHairGrowth);
+
+    setName(name);
   };
+  
 
   return (
     <>
       {show && (
         <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
+            <label htmlFor="name">Enter your Name: </label>
+            <input 
+              id="name"
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              // how do we link this name to email? <-----
+            />
             <label htmlFor="start">Enter your Birthday: </label>
             <input
               id="start"
@@ -113,7 +125,7 @@ export default function Main() {
         </div>
 
         <div>
-          {blinks ? (
+          {blinks ? (  
             <p data-aos="fade-up">
               You have blinked {`${blinks.toLocaleString()}`} times!
             </p>
