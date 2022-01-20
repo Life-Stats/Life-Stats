@@ -4,7 +4,7 @@ import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
-import { numberWithCommas } from '../../utils/utils';
+
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
@@ -40,7 +40,7 @@ export default function Main() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-    ticker();
+    
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
@@ -66,6 +66,8 @@ export default function Main() {
 
     const finalHairGrowth = allObjectsData.totalHairGrowth;
     setHairGrowth(finalHairGrowth);
+
+    ticker();
   };
 
   return (
