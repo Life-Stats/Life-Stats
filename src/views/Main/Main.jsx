@@ -40,7 +40,7 @@ export default function Main() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-    
+    ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
@@ -67,7 +67,6 @@ export default function Main() {
     const finalHairGrowth = allObjectsData.totalHairGrowth;
     setHairGrowth(finalHairGrowth);
 
-    ticker();
   };
 
   return (
