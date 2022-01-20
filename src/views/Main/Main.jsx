@@ -26,7 +26,7 @@ export default function Main() {
     Aos.init({ duration: 3000 });
   }, []);
 
-  useEffect(() => {
+  function ticker() {
     setInterval(() => {
       setBlinks((prevState) => prevState + 1);
     }, 3000);
@@ -36,12 +36,12 @@ export default function Main() {
     setInterval(() => {
       setBreathsState((prevState) => prevState + 1);
     }, 3000);
-  }, []);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-
+    ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
