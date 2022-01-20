@@ -1,76 +1,165 @@
 import React, { useState, useEffect } from 'react';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import Styles from './Main.css';
+import Aos from 'aos';
+import { getHolidays } from '../../utils/PracticeUtils.jsx';
+import { getMainData } from '../../utils/PracticeUtils.jsx';
+import { numberWithCommas } from '../../utils/utils';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 
 export default function Main() {
-  // const [selectedBirthDate, setSelectedBirthDate] = useState(null);
   const [date, setDate] = useState('');
   const [breathsState, setBreathsState] = useState('');
+  const [heartBeats, setHeartBeats] = useState('');
+  const [blinks, setBlinks] = useState(0);
+  const [yearsAsleep, setYearsAsleep] = useState('');
+  const [dreamDays, setDreamDays] = useState('');
+  const [globalExtinction, setGlobalExtinction] = useState('');
+  const [show, setShow] = useState(true);
+  const [holiday, setHoliday] = useState();
+  const [hairGrowth, setHairGrowth] = useState('');
+  // const [horoscope, setHoroscope] = useState('');
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    Aos.init({ duration: 3000 });
+  }, []);
+
+  function ticker() {
+    setInterval(() => {
+      setBlinks((prevState) => prevState + 1);
+    }, 3000);
+    setInterval(() => {
+      setHeartBeats((prevState) => prevState + 1);
+    }, 900);
+    setInterval(() => {
+      setBreathsState((prevState) => prevState + 1);
+    }, 3000);
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    function mungedDate(date) {
-      let newDate = date;
-      let splitDate = newDate.split('-'); // ex: ['2022', '11', '03']
-      // console.log(splitDate[0]) // ex: 2022
-      let today = new Date(); // gets current date ex: Fri 2022 14 01
-      let todaysDate = today.getFullYear()
-      // we need to subtract current year from selected year
-      let yearDiff = todaysDate - splitDate[0];
-      // console.log(yearDiff); // ex: 3 if 2019 was chosen
-      // outcome multiplied by yearly seconds variable
-      let yearSecsTotal = yearlySeconds * yearDiff; // confirmed 
-      let numberOfBreathsInYear = yearSecsTotal/breathsPerSecond;
-      // console.log(numberOfBreathsInYear);
-      // +'-'+(today.getMonth()+1)+'-'+today.getDate();
-      // let splitTodaysDate = todaysDate.split('-')
-      // console.log(todaysDate.toString());
-      // setMungeState(numberOfBreathsInYear);
-      return numberOfBreathsInYear;
-    }
-    setBreathsState(mungedDate(date));
+    // setHoroscope(await getHoroscope(date));
+    ticker();
+    setShow(false);
+    setHoliday(await getHolidays(date));
+    const allObjectsData = await getMainData(date);
+
+    const breathTotal = allObjectsData.newTotalBreaths;
+    setBreathsState(breathTotal);
+
+    const finalHeartBeats = allObjectsData.totalHeartBeats;
+    setHeartBeats(finalHeartBeats);
+
+    const finalYearsAsleep = allObjectsData.totalYearsAsleep;
+    setYearsAsleep(finalYearsAsleep);
+
+    const finalBlinks = allObjectsData.totalBlinks;
+    setBlinks(finalBlinks);
+    console.log(typeof finalBlinks);
+
+    const finalDreamDays = allObjectsData.totalDreamDays;
+    setDreamDays(finalDreamDays);
+
+    const finalExtinctRate = allObjectsData.totalExtinct;
+    setGlobalExtinction(finalExtinctRate);
+
+    const finalHairGrowth = allObjectsData.totalHairGrowth;
+    setHairGrowth(finalHairGrowth);
   };
 
-  const dailySeconds = 86400;
-  const monthlySeconds = 2628288;
-  const yearlySeconds = 31536000;
-  const breathsPerSecond = 0.25;
-
-  // console.log(date); // ex: '2022-11-03' 
-
-  
-  // console.log('MUNGED', mungedDate);
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="start">Enter your Birthday</label>
-      <input 
-        id='start'
-        type='date'
-        value={date}
-        onChange={(event) => setDate(event.target.value)}
-      />
-      <button type="submit" value="submit">Submit</button>
+    <>
+      {show && (
+        <div className={Styles.formSubmit}>
+          <form onSubmit={handleSubmit} className="Main">
+            <label htmlFor="start">Enter your Birthday: </label>
+            <input
+              id="start"
+              type="date"
+              value={date}
+              onChange={(event) => setDate(event.target.value)}
+            />
+            <button aria-label="button" type="submit" value="submit">
+              {show ? 'Submit' : 'Not'}
+            </button>
+          </form>
+        </div>
+      )}
 
-      <div>
-        {breathsState ? <p>You've taken {`${breathsState}`} breaths since your birthday</p>
-        :
-        null
-        }
-        
-      </div>
-      {/* <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      ></input> */}
-      
-      {/* <DatePicker className={DatePicker}
-        value={selectedBirthDate}
-        onChange={setSelectedBirthDate}
-        inputPlaceholder="Select your birthdate"
-      /> */}
-    </form>
+      <section className={Styles.infoSection}>
+        <div>
+          {holiday ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Did you know {`${holiday}`} lands on your birthday!?
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {breathsState ? (
+            <p data-aos="fade-left">
+              You've taken {`${breathsState.toLocaleString()}`} breaths!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {heartBeats ? (
+            <p data-aos="fade-right">
+              You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {blinks ? (
+            <p data-aos="fade-up">
+              You have blinked {`${blinks.toLocaleString()}`} times!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {yearsAsleep ? (
+            <p data-aos="fade-up">
+              {`${yearsAsleep}`} years of your life has been spent asleep!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {dreamDays ? (
+            <p data-aos="fade-up">
+              {`${dreamDays.toLocaleString()}`} days of your life has been spent just dreaming!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {globalExtinction ? (
+            <p data-aos="fade-up">
+              Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
+              species of animal life have since gone extinct..
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {hairGrowth ? (
+            <p data-aos="fade-up">
+              Your hair has grown {`${hairGrowth}`} feet! Since you were born.
+            </p>
+          ) : null}
+        </div>
+
+        {/* <div>
+          {horoscope ? (
+            <p data-aos="fade-up">
+            Here is a reading: {`${horoscope}`}</p>
+            ) : null}
+          </div> */}
+      </section>
+    </>
   );
 }

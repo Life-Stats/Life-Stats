@@ -1,0 +1,44 @@
+.formSubmit {
+  text-align: center;
+}
+
+.infoSection {
+  text-align: center;
+}
+
+.infoSection p {
+  display: flex;
+  justify-content: center;
+  margin: 400px 0 800px 0;
+  font-size: 2em;
+}
+
+form {
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 300px;
+  padding-top: 400px;
+  font-size: 2em;
+}
+
+form label {
+  margin-bottom: 20px;
+}
+
+form button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.pTagAnimations {
+  border: 2px solid black;
+  height: 200px;
+  overflow: hidden;
+  /* background-color: rgb(214, 230, 214); */
+}

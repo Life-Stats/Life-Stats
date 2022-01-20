@@ -1,0 +1,68 @@
+.header {
+padding: 0;
+margin: 0;
+text-decoration: none;
+list-style: none;
+box-sizing: border-box;
+
+
+
+
+background-color: rgba(254, 109, 115);
+border-bottom-left-radius: 50%;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.signinTitle {
+font-family: 'Times New Roman', Times, serif;
+
+
+}
+
+.nav{
+    background-color: rgba(254, 109, 114, 0.289);
+    height: 80px;
+    width: 100%;
+}
+
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+
+
+
+
+
+.signin {
+    font-size: 1rem;
+}
+
+
+.image {
+    height: 3rem;
+    width: 3rem;
+      
+}
+   

@@ -1,0 +1,30 @@
+img {
+
+  height: 175px;
+  width: 175px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 50px 100px 50px 100px;
+}
+
+div.left, div.right {
+margin: 50px 0 50px 0;
+}
+
+.text {
+  padding: 0 10px 0 10px;
+}
+
+.right {
+display: flex;
+align-self: flex-end;
+
+}
+
+.left {
+display: flex;
+align-self: flex-start;
+}

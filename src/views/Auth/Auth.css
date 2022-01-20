@@ -8,8 +8,19 @@
 
 }
 
+
 .btnDiv {
+    background-color: rgba(254, 249, 239);
+    border: 5px solid rgb(254, 109, 115);
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    min-height: 30vh;
+    padding: 5%;
+    margin: 5% 18%
     
 }
 
@@ -24,7 +35,8 @@
 }
 
 .btnP {
-    margin-left: 5px;
+    margin-left: 4px;
+    padding-right: 5px;
 }
 
 .authBtn {
