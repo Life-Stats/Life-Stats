@@ -131,7 +131,7 @@ export default function Main() {
         <div>
           {dreamDays ? (
             <p data-aos="fade-up">
-              {`${dreamDays}`} days of your life has been spent just dreaming!
+              {`${dreamDays.toLocaleString()}`} days of your life has been spent just dreaming!
             </p>
           ) : null}
         </div>
