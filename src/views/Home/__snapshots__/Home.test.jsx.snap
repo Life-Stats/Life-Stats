@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Home view and then redirect to the Main view when clicking the play button  1`] = `
+<div>
+  <div
+    class="titleDiv"
+  >
+    <h1
+      class="title"
+    >
+      Life Stats
+    </h1>
+  </div>
+  <div
+    class="div"
+  >
+    <section
+      class="section"
+    >
+      <p
+        class="desc"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <div
+        class="btnDiv"
+      >
+        <button
+          class="signin"
+        >
+          PLAY
+        </button>
+      </div>
+    </section>
+  </div>
+</div>
+`;
