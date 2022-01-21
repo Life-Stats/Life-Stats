@@ -2,17 +2,12 @@ import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
-import { getHolidays } from '../../utils/PracticeUtils.jsx';
-import { getMainData } from '../../utils/PracticeUtils.jsx';
+import { getHolidays, getMainData } from '../../utils/Utils.jsx';
 import tas from '../../assets/tas-removebg-preview.png';
 import dreamingPic from '../../assets/dreamPic.png'
 import longHair from '../../assets/longHair.png'
 import sleepy from '../../assets/sleepy.png'
 import born from '../../assets/born.png'
-
-
-// import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-// import DatePicker from 'react-modern-calendar-datepicker';
 
 export default function Main() {
   const [date, setDate] = useState('');
@@ -26,7 +21,6 @@ export default function Main() {
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
   const [numDays, setNumDays] = useState('');
-  // const [horoscope, setHoroscope] = useState('');
 
   useEffect(() => {
     Aos.init({ duration: 3000 });
@@ -46,7 +40,7 @@ export default function Main() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setHoroscope(await getHoroscope(date));
+    
     ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
@@ -206,7 +200,7 @@ export default function Main() {
         <div>
           {hairGrowth ? (
             <>
-            {<img src={longHair}></img>}
+            {<img src={longHair} className={Styles.hair}></img>}
             <p data-aos="fade-up">
               Your hair has grown a grand total of {`${hairGrowth}`} feet since you were born!
             </p>

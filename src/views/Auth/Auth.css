@@ -1,7 +1,6 @@
 .authWelcome {
     text-align: center;
     font-size: 3em;
-
 }
 
 .authSect p {
@@ -38,7 +37,7 @@
 }
 
 .authBtn {
-    background-color: rgba(72, 152, 238, 0.662);
+    background-color: rgb(236, 164, 167);
     border-radius: 3%;
     padding: 0px;
     margin: 0 0 10px 0;
@@ -52,5 +51,7 @@
     margin-right: 5px;
     height: 30px;
     width: 30px;
+    border: none;
+    box-shadow: none;
 }
 

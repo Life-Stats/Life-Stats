@@ -1,21 +1,14 @@
 import { useUser } from '../../context/UserContext';
 import { signInUser, signInUserGitHub } from '../../services/users';
 import Styles from './Auth.css';
-// cal fetch utils function to gain access to user data from back end response
 
 export default function Auth({ isSigningIn = false }) {
   const { setUser } = useUser();
 
   const handleSubmit = async () => {
     try {
-      //services need to put in BE and make call to talk to Supabase
-      // if they are signing up
       const user = await signInUser();
       setUser(user);
-      console.log(user);
-      // if (user) return <Redirect to="/main" />;
-
-      console.log('user', user);
     } catch (error) {
       throw error;
     }
@@ -23,11 +16,8 @@ export default function Auth({ isSigningIn = false }) {
 
   const handleSubmitGitHub = async () => {
     try {
-      //services need to put in BE and make call to talk to Supabase
-      // if they are signing up
       const user = await signInUserGitHub();
       setUser(user);
-      console.log('user', user);
     } catch (error) {
       throw error;
     }

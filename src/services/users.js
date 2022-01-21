@@ -1,7 +1,5 @@
 const { client } = require('./client');
 
-// BE services
-
 export function getUser() {
  return client.auth.user();
 }  
@@ -28,10 +26,6 @@ export async function signInUserGitHub() {
   const { user, session, error } = await client.auth.signIn({ 
     provider: 'github'
   },
-  // {
-  //   redirectTo: 
-
-  // }
   );
   if (error) throw error;
   return user;
@@ -40,4 +34,4 @@ export async function signInUserGitHub() {
 export async function signOutUser() {
   return client.auth.signOut();
 }
-// return { getUser, getSession, signInUser, signUpUser, signOutUser };
+

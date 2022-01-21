@@ -25,5 +25,4 @@ it('when clicked the button does something', async () => {
   return waitFor(() => {
     screen.getByLabelText('holiday');
   });
-  //user selects date, then submits by clicking button "submit"
 });
