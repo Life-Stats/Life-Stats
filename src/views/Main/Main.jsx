@@ -4,6 +4,11 @@ import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
+import tas from '../../assets/tas-removebg-preview.png';
+import dreamingPic from '../../assets/dreamPic.png'
+import longHair from '../../assets/longHair.png'
+import sleepy from '../../assets/sleepy.png'
+
 
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
@@ -40,7 +45,7 @@ export default function Main() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // setHoroscope(await getHoroscope(date));
-    
+    ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
@@ -67,7 +72,6 @@ export default function Main() {
     const finalHairGrowth = allObjectsData.totalHairGrowth;
     setHairGrowth(finalHairGrowth);
 
-    ticker();
   };
 
   return (
@@ -100,67 +104,100 @@ export default function Main() {
 
         <div>
           {breathsState ? (
-            <p data-aos="fade-left">
+            <>
+            <section className={Styles.breathbox}>
+              <div>
+                <div className={Styles.breathface}>
+                    <div className={Styles.eye} />
+                    <div className={Styles.eye} />
+                </div>
+                <div className={Styles.breathbottomface}>
+                    <div className={Styles.mouth} />
+                </div>
+              </div>
+            </section>
+  
+            <p data-aos="fade-left" >
               You've taken {`${breathsState.toLocaleString()}`} breaths!
             </p>
+            </>
           ) : null}
         </div>
 
+
         <div>
           {heartBeats ? (
+            <>
+            <div className={Styles.heart}></div>
             <p data-aos="fade-right">
               You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
             </p>
+          </>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">
-              You have blinked {`${blinks.toLocaleString()}`} times!
-            </p>
+            <>
+            <div className={Styles.blinks}>
+                <div className={Styles.face}>
+                <div className={Styles.eye} />
+                <div className={Styles.eye} />
+            </div>
+              </div>
+              <p data-aos="fade-up">
+                You have blinked {`${blinks.toLocaleString()}`} times!
+              </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {yearsAsleep ? (
+            <>
+            {<img src={sleepy} className={Styles.asleep}></img>}
             <p data-aos="fade-up">
               {`${yearsAsleep}`} years of your life has been spent asleep!
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {dreamDays ? (
+            <>
+            {<img src={dreamingPic} className={Styles.dream}></img>}
             <p data-aos="fade-up">
-              {`${dreamDays.toLocaleString()}`} days of your life has been spent just dreaming!
+              {`${dreamDays.toLocaleString()}`} days of your life has been spent
+              just dreaming!
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {globalExtinction ? (
+            <>
+            {<img src={tas} className={Styles.extinct}></img>}
             <p data-aos="fade-up">
               Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
               species of animal life have since gone extinct..
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {hairGrowth ? (
+            <>
+            {<img src={longHair}></img>}
             <p data-aos="fade-up">
               Your hair has grown {`${hairGrowth}`} feet! Since you were born.
             </p>
+            </>
           ) : null}
         </div>
 
-        {/* <div>
-          {horoscope ? (
-            <p data-aos="fade-up">
-            Here is a reading: {`${horoscope}`}</p>
-            ) : null}
-          </div> */}
       </section>
     </>
   );

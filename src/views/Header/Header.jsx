@@ -1,20 +1,20 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { signOutUser } from '../../services/users';
 import Styles from './Header.css';
 import { slide as Menu } from 'react-burger-menu';
 import stylesHeader from './HeaderStyles';
+import { useUser } from '../../context/UserContext';
 
 export default function Header() {
+  const { setUser } = useUser();
   const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signOutUser();
-    history.replace(from.pathname);
-    // history.push('/');
+    setUser({});
+    history.replace('/');
   };
 
   return (

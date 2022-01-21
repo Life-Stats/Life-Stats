@@ -8,11 +8,11 @@ import { act } from 'react-dom/test-utils';
 
 it('when clicked the button does something', async () => {
   const { container } = render(
-    // <UserProvider>
-    //   <MemoryRouter>
-    <Main />
-    //   {/* </MemoryRouter>
-    // </UserProvider> */}
+    <UserProvider>
+      <MemoryRouter>
+        <Main />
+      </MemoryRouter>
+    </UserProvider>
   );
 
   expect(container).toMatchSnapshot();
