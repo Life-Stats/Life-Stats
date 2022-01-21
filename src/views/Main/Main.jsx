@@ -78,7 +78,7 @@ export default function Main() {
       {show && (
         <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
-            <label htmlFor="start">Enter your Birthday: </label>
+            <label htmlFor="start">Enter your Birthday </label>
             <input
               id="start"
               type="date"
@@ -101,7 +101,7 @@ export default function Main() {
           ) : null}
         </div>
 
-        <div>
+        <div className={Styles.divWrapper}>
           {breathsState ? (
             <>
             <section className={Styles.breathbox}>

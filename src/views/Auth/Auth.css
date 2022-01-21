@@ -1,9 +1,12 @@
 .authWelcome {
     text-align: center;
-    font-size: 30px;
+    font-size: 3em;
 
 }
 
+.authSect p {
+    font-size: 30px;
+}
 
 .btnDiv {
     background-color: rgba(254, 249, 239);
@@ -17,7 +20,6 @@
     min-height: 30vh;
     padding: 5%;
     margin: 5% 18%
-    
 }
 
 .imgDiv {
@@ -39,7 +41,7 @@
     background-color: rgba(72, 152, 238, 0.662);
     border-radius: 3%;
     padding: 0px;
-    margin: 0px;
+    margin: 0 0 10px 0;
     box-shadow: 1px 2px grey;
 }
 
@@ -51,3 +53,4 @@
     height: 30px;
     width: 30px;
 }
+

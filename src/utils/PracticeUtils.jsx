@@ -1,8 +1,8 @@
 // const fetch = require('node-fetch-commonjs');
 
 export async function getHolidays(date) {
-  const url = 'https://life-stats-app.herokuapp.com/api/v1/holiday'; // deployed Heroku URL
-  // const url = 'http://localhost:7890/api/v1/holiday';
+  // const url = 'https://life-stats-app.herokuapp.com/api/v1/holiday'; // deployed Heroku URL
+  const url = 'http://localhost:7890/api/v1/holiday';
   const response = await fetch(url, {
 
     method: 'POST', 
@@ -17,8 +17,8 @@ export async function getHolidays(date) {
 //--------------------- 
 
 export async function getMainData(date) {
-  const url = 'https://life-stats-app.herokuapp.com/api/v1/main'; // deployed Heroku URL
-  // const url = 'http://localhost:7890/api/v1/main';
+  // const url = 'https://life-stats-app.herokuapp.com/api/v1/main'; // deployed Heroku URL
+  const url = 'http://localhost:7890/api/v1/main';
   const response = await fetch(url, {
     
     method: 'POST', 

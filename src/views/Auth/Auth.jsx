@@ -36,10 +36,12 @@ export default function Auth({ isSigningIn = false }) {
   return (
     <>
       <div className={Styles.btnDiv}>
+      
         <section className={Styles.authSect}>
           <h2 className={Styles.authWelcome}>Welcome!</h2>
-          <p>Click the button to Sign in with Google</p>
+          <p>Please sign in with Google or GitHub!</p>
         </section>
+
         <button className={Styles.authBtn} onClick={handleSubmit}>
           <section className={Styles.btnSect}>
             <div className={Styles.imgDiv}>
@@ -63,6 +65,7 @@ export default function Auth({ isSigningIn = false }) {
             <p className={Styles.btnP}>Sign in with GitHub</p>
           </section>
         </button>
+
       </div>
     </>
   );

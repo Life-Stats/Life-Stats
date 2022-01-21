@@ -8,6 +8,7 @@ export default function Home() {
   const history = useHistory();
   const location = useLocation();
   const { login } = location.state || { login: { pathname: '/login' } };
+  const currentUser = getUser();
 
   const handlePlay = (e) => {
     e.preventDefault();
@@ -25,15 +26,12 @@ export default function Home() {
       <div className={Styles.titleDiv}>
         <h1 className={Styles.title}>Life Stats</h1>
       </div>
+
+      {currentUser ? (
       <div className={Styles.div}>
         <section className={Styles.section}>
           <p className={Styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+           Now we are ready to play homeboy
           </p>
           <div className={Styles.btnDiv}>
             <button onClick={handlePlay} className={Styles.signin}>
@@ -42,6 +40,21 @@ export default function Home() {
           </div>
         </section>
       </div>
+      ) : (
+        <div className={Styles.div}>
+        <section className={Styles.section}>
+          <p className={Styles.desc}>
+          Hello Welcome to Life stats! Please sign in to use 
+          </p>
+          <div className={Styles.btnDiv}>
+            <button onClick={handlePlay} className={Styles.signin}>
+              Please sign in 
+            </button>
+          </div>
+        </section>
+      </div>
+      )
+    }
     </>
   );
 }

@@ -1,15 +1,26 @@
-.header {
-padding: 0;
-margin: 0;
-text-decoration: none;
-list-style: none;
-box-sizing: border-box;
+.header {  
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    background-color: rgba(254, 109, 115);
+    border-bottom-left-radius: 50%;
+}
 
+.hamburger {
+    display: flex;
+    flex-direction: row;
+}
 
+.hamburger a {
+    text-decoration: none;
+    color:  rgb(254, 249, 239);
+    font-size: 1.1em;
+}
 
-
-background-color: rgba(254, 109, 115);
-border-bottom-left-radius: 50%;
+.hamburger div {
+    margin: 20px 0 0 0;
 }
 
 .titleSection {
@@ -17,11 +28,8 @@ border-bottom-left-radius: 50%;
     flex-direction: row;
 }
 
-
 .signinTitle {
-font-family: 'Times New Roman', Times, serif;
-
-
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .nav{
@@ -50,19 +58,17 @@ nav ul li {
     margin: 0 5px;
 }
 
-
-
-
-
-
 .signin {
     font-size: 1rem;
 }
-
 
 .image {
     height: 3rem;
     width: 3rem;
       
+}
+
+.hamburger {
+    font-size: 2em;
 }
    

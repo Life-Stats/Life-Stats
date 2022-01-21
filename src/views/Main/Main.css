@@ -24,12 +24,18 @@ form {
   justify-content: center;
   margin: 0 auto;
   width: 300px;
-  padding-top: 400px;
+  margin-top: 400px;
+  padding: 20px;
   font-size: 2em;
+  width: 450px;
+  border: 4px rgba(254, 109, 115) solid;
+  box-shadow: black 1px 1px 6px 1px ;
 }
 
 form label {
   margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 form button {
@@ -120,6 +126,7 @@ form button {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 400px
 }
 
 .heart {
