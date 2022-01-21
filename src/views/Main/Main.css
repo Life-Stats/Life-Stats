@@ -13,6 +13,10 @@
   font-size: 2em;
 }
 
+.divSize {
+  border: 1px black solid;
+}
+
 form {
   display: inline-block;
   display: flex;
@@ -60,6 +64,13 @@ form button {
 .face:hover {
   background: rgb(34, 207, 238);
 }
+
+.blinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .breathface {
   display: flex;
   flex-direction: row;
@@ -97,27 +108,29 @@ form button {
 }
 .mouth {
   background: rgb(53, 43, 43);
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   margin-left: 2%;
   transform-origin: 50%;
-  animation: breaths 3s infinite;
+  animation: breaths 2s infinite;
 }
+
 .breathbox {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .heart {
   background-color: red;
   display: inline-block;
-  height: 40px;
+  height: 80px;
   margin: 0 10px;
   position: relative;
   top: 0;
   transform: rotate(-45deg);
-  width: 40px;
+  width: 80px;
 }
 
 .heart:before,
@@ -125,22 +138,37 @@ form button {
   content: '';
   background-color: red;
   border-radius: 50%;
-  height: 40px;
+  height: 80px;
   position: absolute;
-  width: 40px;
+  width: 80px;
 }
 
 .heart:before {
-  top: -15px;
+  top: -33px;
   left: 0;
   animation: heartbeats 1s infinite;
 }
 
 .heart:after {
-  left: 15px;
+  left: 33px;
   top: 0;
   animation: heartbeats 1s infinite;
 }
+
+.dream {
+  width: 400px;
+  height: 200px;
+}
+
+.extinct {
+  width: 400px;
+}
+
+.asleep {
+  width: 250px;
+  height: 220px;
+}
+
 @keyframes blink {
   0%,
   100% {

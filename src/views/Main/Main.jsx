@@ -104,18 +104,23 @@ export default function Main() {
 
         <div>
           {breathsState ? (
-            <p data-aos="fade-left" className="breathp">
-              You've taken {`${breathsState.toLocaleString()}`} breaths!
-              <div className="breathbox">
+            <>
+            <section className={Styles.breathbox}>
+              <div>
                 <div className={Styles.breathface}>
-                  <div className={Styles.eye} />
-                  <div className={Styles.eye} />
+                    <div className={Styles.eye} />
+                    <div className={Styles.eye} />
                 </div>
                 <div className={Styles.breathbottomface}>
-                  <div className={Styles.mouth} />
+                    <div className={Styles.mouth} />
                 </div>
               </div>
+            </section>
+  
+            <p data-aos="fade-left" >
+              You've taken {`${breathsState.toLocaleString()}`} breaths!
             </p>
+            </>
           ) : null}
         </div>
 
@@ -123,9 +128,9 @@ export default function Main() {
         <div>
           {heartBeats ? (
             <>
+            <div className={Styles.heart}></div>
             <p data-aos="fade-right">
               You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
-              <div className={Styles.heart}></div>
             </p>
           </>
           ) : null}
@@ -134,12 +139,14 @@ export default function Main() {
         <div>
           {blinks ? (
             <>
+            <div className={Styles.blinks}>
+                <div className={Styles.face}>
+                <div className={Styles.eye} />
+                <div className={Styles.eye} />
+            </div>
+              </div>
               <p data-aos="fade-up">
                 You have blinked {`${blinks.toLocaleString()}`} times!
-                <div className={Styles.face}>
-                  <div className={Styles.eye} />
-                  <div className={Styles.eye} />
-                </div>
               </p>
             </>
           ) : null}
@@ -148,7 +155,7 @@ export default function Main() {
         <div>
           {yearsAsleep ? (
             <>
-            {<img src={sleepy}></img>}
+            {<img src={sleepy} className={Styles.asleep}></img>}
             <p data-aos="fade-up">
               {`${yearsAsleep}`} years of your life has been spent asleep!
             </p>
@@ -159,7 +166,7 @@ export default function Main() {
         <div>
           {dreamDays ? (
             <>
-            {<img src={dreamingPic}></img>}
+            {<img src={dreamingPic} className={Styles.dream}></img>}
             <p data-aos="fade-up">
               {`${dreamDays.toLocaleString()}`} days of your life has been spent
               just dreaming!
@@ -171,7 +178,7 @@ export default function Main() {
         <div>
           {globalExtinction ? (
             <>
-            {<img src={tas}></img>}
+            {<img src={tas} className={Styles.extinct}></img>}
             <p data-aos="fade-up">
               Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
               species of animal life have since gone extinct..
@@ -191,12 +198,6 @@ export default function Main() {
           ) : null}
         </div>
 
-        {/* <div>
-          {horoscope ? (
-            <p data-aos="fade-up">
-            Here is a reading: {`${horoscope}`}</p>
-            ) : null}
-          </div> */}
       </section>
     </>
   );
