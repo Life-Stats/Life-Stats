@@ -28,33 +28,33 @@ export default function Home() {
       </div>
 
       {currentUser ? (
-      <div className={Styles.div}>
-        <section className={Styles.section}>
-          <p className={Styles.desc}>
-           Now we are ready to play homeboy
-          </p>
-          <div className={Styles.btnDiv}>
-            <button onClick={handlePlay} className={Styles.signin}>
-              PLAY
-            </button>
-          </div>
-        </section>
-      </div>
+        <div className={Styles.div}>
+          <section className={Styles.section}>
+            <p className={Styles.desc}>
+              Your reflective and informational journey awaits!
+            </p>
+            <div className={Styles.btnDiv}>
+              <button onClick={handlePlay} className={Styles.signin}>
+                PLAY
+              </button>
+            </div>
+          </section>
+        </div>
       ) : (
         <div className={Styles.div}>
-        <section className={Styles.section}>
-          <p className={Styles.desc}>
-          Hello Welcome to Life stats! Please sign in to use 
-          </p>
-          <div className={Styles.btnDiv}>
-            <button onClick={handlePlay} className={Styles.signin}>
-              Please sign in 
-            </button>
-          </div>
-        </section>
-      </div>
-      )
-    }
+          <section className={Styles.section}>
+            <p className={Styles.desc}>
+              Welcome! <br /> We invite you to sign in below before you enjoy
+              the experience.
+            </p>
+            <div className={Styles.btnDiv}>
+              <button onClick={handlePlay} className={Styles.signin}>
+                Please sign in.
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
     </>
   );
 }
