@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Styles from './Main.css';
 import Aos from 'aos';
-import { getHolidays } from '../../utils/PracticeUtils.jsx';
-import { getMainData } from '../../utils/PracticeUtils.jsx';
+import { getHolidays, getMainData } from '../../utils/Utils.jsx';
 import tas from '../../assets/tas-removebg-preview.png';
 import dreamingPic from '../../assets/dreamPic.png'
 import longHair from '../../assets/longHair.png'
 import sleepy from '../../assets/sleepy.png'
-
-
-// import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-// import DatePicker from 'react-modern-calendar-datepicker';
+import born from '../../assets/born.png'
 
 export default function Main() {
   const [date, setDate] = useState('');
@@ -24,7 +20,7 @@ export default function Main() {
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
-  // const [horoscope, setHoroscope] = useState('');
+  const [numDays, setNumDays] = useState('');
 
   useEffect(() => {
     Aos.init({ duration: 3000 });
@@ -44,11 +40,14 @@ export default function Main() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setHoroscope(await getHoroscope(date));
+    
     ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
+
+    const totalNumDays = allObjectsData.totalNumOfDays;
+    setNumDays(totalNumDays);
 
     const breathTotal = allObjectsData.newTotalBreaths;
     setBreathsState(breathTotal);
@@ -78,7 +77,7 @@ export default function Main() {
       {show && (
         <div className={Styles.formSubmit}>
           <form onSubmit={handleSubmit} className="Main">
-            <label htmlFor="start">Enter your Birthday: </label>
+            <label htmlFor="start">Enter your Birthday </label>
             <input
               id="start"
               type="date"
@@ -93,15 +92,27 @@ export default function Main() {
       )}
 
       <section className={Styles.infoSection}>
-        <div>
-          {holiday ? (
+
+      <div>
+          {numDays ? (
+            <>
+            {<img src={born} className={Styles.born}></img>}
             <p aria-label="holiday" data-aos="fade-up">
-              Did you know {`${holiday}`} lands on your birthday!?
+              A lot has happened in the {`${numDays.toLocaleString()}`} days since you were born.
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Since you were born... 
+            </p>
+          ) : null}
+        </div>
+
+        <div className={Styles.divWrapper}>
           {breathsState ? (
             <>
             <section className={Styles.breathbox}>
@@ -189,11 +200,43 @@ export default function Main() {
         <div>
           {hairGrowth ? (
             <>
-            {<img src={longHair}></img>}
+            {<img src={longHair} className={Styles.hair}></img>}
             <p data-aos="fade-up">
-              Your hair has grown {`${hairGrowth}`} feet! Since you were born.
+              Your hair has grown a grand total of {`${hairGrowth}`} feet since you were born!
             </p>
             </>
+          ) : null}
+        </div>
+
+        <div>
+          {holiday ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Did you know {`${holiday}`} lands on your birthday!?
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              .. A lot has happened since you were born, and you still have a long way to go.
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Who else knows what else will happen in your lifetime!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Thanks for playing Life Stats with us :) 
+            </p>
           ) : null}
         </div>
 

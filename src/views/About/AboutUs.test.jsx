@@ -13,8 +13,5 @@ it('should render AboutUs view', () => {
     </MemoryRouter>
   );
 
-  // const about = await screen.findByText('About Us views', { exact: false });
-
-  // expect(about).toBeInTheDocument();
   expect(container).toMatchSnapshot();
 });

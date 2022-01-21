@@ -8,6 +8,7 @@ export default function Home() {
   const history = useHistory();
   const location = useLocation();
   const { login } = location.state || { login: { pathname: '/login' } };
+  const currentUser = getUser();
 
   const handlePlay = (e) => {
     e.preventDefault();
@@ -25,23 +26,35 @@ export default function Home() {
       <div className={Styles.titleDiv}>
         <h1 className={Styles.title}>Life Stats</h1>
       </div>
-      <div className={Styles.div}>
-        <section className={Styles.section}>
-          <p className={Styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-          <div className={Styles.btnDiv}>
-            <button onClick={handlePlay} className={Styles.signin}>
-              PLAY
-            </button>
-          </div>
-        </section>
-      </div>
+
+      {currentUser ? (
+        <div className={Styles.div}>
+          <section className={Styles.section}>
+            <p className={Styles.desc}>
+              Your reflective and informational journey awaits!
+            </p>
+            <div className={Styles.btnDiv}>
+              <button onClick={handlePlay} className={Styles.signin}>
+                PLAY
+              </button>
+            </div>
+          </section>
+        </div>
+      ) : (
+        <div className={Styles.div}>
+          <section className={Styles.section}>
+            <p className={Styles.desc}>
+              Welcome! <br /> We invite you to sign in below before you enjoy
+              the experience.
+            </p>
+            <div className={Styles.btnDiv}>
+              <button onClick={handlePlay} className={Styles.signin}>
+                Please sign in.
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
     </>
   );
 }

@@ -34,8 +34,7 @@ it('should render the Home view and then redirect to the Main view when clicking
 
   userEvent.click(button);
 
-  // This text is rendered in the Auth component - if test passes it succesfully redirects
   return await waitFor(() => {
-    screen.findByText('Click the button to Sign in with Google');
+    screen.findByText('Please sign in with Google or GitHub!');
   });
 });

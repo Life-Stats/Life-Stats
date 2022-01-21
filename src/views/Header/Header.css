@@ -1,68 +1,73 @@
 .header {
-padding: 0;
-margin: 0;
-text-decoration: none;
-list-style: none;
-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  background-color: rgba(254, 109, 115);
+  border-bottom-left-radius: 50%;
+}
 
+.hamburger {
+  display: flex;
+  flex-direction: row;
+}
 
+.hamburger a {
+  text-decoration: none;
+  color: rgb(254, 249, 239);
+  font-size: 1.1em;
+}
 
-
-background-color: rgba(254, 109, 115);
-border-bottom-left-radius: 50%;
+.hamburger div {
+  margin: 20px 0 0 0;
 }
 
 .titleSection {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
-
 
 .signinTitle {
-font-family: 'Times New Roman', Times, serif;
-
-
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.nav{
-    background-color: rgba(254, 109, 114, 0.289);
-    height: 80px;
-    width: 100%;
+.nav {
+  background-color: rgba(254, 109, 114, 0.289);
+  height: 80px;
+  width: 100%;
 }
 
 label.logo {
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
 }
 
 nav ul {
-    float: right;
-    margin-right: 20px;
-
+  float: right;
+  margin-right: 20px;
 }
 
 nav ul li {
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
 }
-
-
-
-
-
 
 .signin {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
-
-.image {
-    height: 3rem;
-    width: 3rem;
-      
+.headerImage {
+  height: 3rem;
+  width: 3rem;
+  border: none;
+  box-shadow: none;
 }
-   
+
+.hamburger {
+  font-size: 2em;
+}

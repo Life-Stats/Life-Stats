@@ -19,22 +19,32 @@ export default function Header() {
 
   return (
     <>
-      <Menu right width={'25%'} styles={stylesHeader}>
-        <a id="home" href="/">
-          Home
-        </a>
-        <a id="about" href="/about">
-          About Us
-        </a>
-        <a id="signOut" href="/" onClick={handleSubmit}>
-          Sign out
-        </a>
+      <Menu right width={'15%'} styles={stylesHeader}>
+        <div className={Styles.hamburger}>
+          <div>
+            <a id="home" href="/">
+              Home
+            </a>
+          </div>
+
+          <div>
+            <a id="about" href="/about">
+              About Us
+            </a>
+          </div>
+
+          <div>
+            <a id="signOut" href="/" onClick={handleSubmit}>
+              Sign out
+            </a>
+          </div>
+        </div>
       </Menu>
       <header className={Styles.header}>
         <section className={Styles.titleSection}>
           <section className={Styles.imgSection}>
             <img
-              className={Styles.image}
+              className={Styles.headerImage}
               src="https://freesvg.org/img/1539121879.png"
             />
           </section>
