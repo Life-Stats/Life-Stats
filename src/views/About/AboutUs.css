@@ -18,9 +18,22 @@ img {
 }
 
 div.left, div.right {
-  margin: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 0 40px 0;
   display: flex;
   align-items: center;
+  font-size: 17px;
+}
+
+div.right:last-child {
+  margin-bottom: 300px;
+}
+
+.name {
+  font-weight: bolder;
+  font-size: 2em;
 }
 
 .text {
@@ -30,7 +43,6 @@ div.left, div.right {
 .right {
 display: flex;
 align-self: flex-end;
-
 }
 
 .left {
