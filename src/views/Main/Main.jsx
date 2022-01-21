@@ -61,7 +61,6 @@ export default function Main() {
 
     const finalBlinks = allObjectsData.totalBlinks;
     setBlinks(finalBlinks);
-    console.log(typeof finalBlinks);
 
     const finalDreamDays = allObjectsData.totalDreamDays;
     setDreamDays(finalDreamDays);
