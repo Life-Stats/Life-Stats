@@ -4,6 +4,11 @@ import Styles from './Main.css';
 import Aos from 'aos';
 import { getHolidays } from '../../utils/PracticeUtils.jsx';
 import { getMainData } from '../../utils/PracticeUtils.jsx';
+import tas from '../../assets/tas-removebg-preview.png';
+import dreamingPic from '../../assets/dreamPic.png'
+import longHair from '../../assets/longHair.png'
+import sleepy from '../../assets/sleepy.png'
+
 
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
@@ -99,8 +104,17 @@ export default function Main() {
 
         <div>
           {breathsState ? (
-            <p data-aos="fade-left">
+            <p data-aos="fade-left" className="breathp">
               You've taken {`${breathsState.toLocaleString()}`} breaths!
+              <div className="breathbox">
+                <div className={Styles.breathface}>
+                  <div className={Styles.eye} />
+                  <div className={Styles.eye} />
+                </div>
+                <div className={Styles.breathbottomface}>
+                  <div className={Styles.mouth} />
+                </div>
+              </div>
             </p>
           ) : null}
         </div>
@@ -109,13 +123,9 @@ export default function Main() {
         <div>
           {heartBeats ? (
             <>
-
             <p data-aos="fade-right">
-            {/* https://giphy.com/gifs/wordpressdotcom-wordpress-3JUsda8zZiFvQD0ioo */}
-        <div style={{ width: '100%', height: '0', paddingBottom: '100%', position: 'relative' }}>
-        {<iframe src="https://giphy.com/embed/3JUsda8zZiFvQD0ioo" width="200px" height="200px" style={{position: 'absolute'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>}
-        </div>
               You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
+              <div className={Styles.heart}></div>
             </p>
           </>
           ) : null}
@@ -123,42 +133,61 @@ export default function Main() {
 
         <div>
           {blinks ? (
-            <p data-aos="fade-up">
-              You have blinked {`${blinks.toLocaleString()}`} times!
-            </p>
+            <>
+              <p data-aos="fade-up">
+                You have blinked {`${blinks.toLocaleString()}`} times!
+                <div className={Styles.face}>
+                  <div className={Styles.eye} />
+                  <div className={Styles.eye} />
+                </div>
+              </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {yearsAsleep ? (
+            <>
+            {<img src={sleepy}></img>}
             <p data-aos="fade-up">
               {`${yearsAsleep}`} years of your life has been spent asleep!
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {dreamDays ? (
+            <>
+            {<img src={dreamingPic}></img>}
             <p data-aos="fade-up">
-              {`${dreamDays.toLocaleString()}`} days of your life has been spent just dreaming!
+              {`${dreamDays.toLocaleString()}`} days of your life has been spent
+              just dreaming!
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {globalExtinction ? (
+            <>
+            {<img src={tas}></img>}
             <p data-aos="fade-up">
               Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
               species of animal life have since gone extinct..
             </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {hairGrowth ? (
+            <>
+            {<img src={longHair}></img>}
             <p data-aos="fade-up">
               Your hair has grown {`${hairGrowth}`} feet! Since you were born.
             </p>
+            </>
           ) : null}
         </div>
 

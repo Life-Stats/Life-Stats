@@ -42,3 +42,139 @@ form button {
   overflow: hidden;
   /* background-color: rgb(214, 230, 214); */
 }
+
+* {
+  box-sizing: border-box;
+}
+.face {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+.face:hover {
+  background: rgb(34, 207, 238);
+}
+.breathface {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+.breathbottomface {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+.breathface:hover {
+  background: rgb(34, 207, 238);
+}
+.eye {
+  background: white;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 0 5px;
+  border-radius: 50%;
+  transform-origin: 50%;
+  animation: blink 3s infinite;
+}
+.mouth {
+  background: rgb(53, 43, 43);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 2%;
+  transform-origin: 50%;
+  animation: breaths 3s infinite;
+}
+.breathbox {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  background-color: red;
+  display: inline-block;
+  height: 40px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 40px;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  background-color: red;
+  border-radius: 50%;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.heart:before {
+  top: -15px;
+  left: 0;
+  animation: heartbeats 1s infinite;
+}
+
+.heart:after {
+  left: 15px;
+  top: 0;
+  animation: heartbeats 1s infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    transform: scale(1, 0.05);
+  }
+  5%,
+  95% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes breaths {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  75% {
+    transform: scale(2, 2);
+  }
+  90% {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+@keyframes heartbeats {
+  25% {
+    transform: scale(1.01, 1.01);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+}
