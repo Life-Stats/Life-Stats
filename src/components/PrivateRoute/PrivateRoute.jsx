@@ -9,18 +9,20 @@ export default function PrivateRoute({ children, ...rest }) {
   const { user } = useUser();
 
   return (
-    <Route 
-      {...rest} 
-      render={({ location }) => user.id ? (
-        children
-        ) : ( 
-        <Redirect to={{
-          pathname: 'login',
-          state: { from: location },
-        }}
-        />
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user.id ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: location },
+            }}
+          />
         )
-      } 
+      }
     />
-  )
+  );
 }
