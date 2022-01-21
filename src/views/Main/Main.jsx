@@ -8,6 +8,7 @@ import tas from '../../assets/tas-removebg-preview.png';
 import dreamingPic from '../../assets/dreamPic.png'
 import longHair from '../../assets/longHair.png'
 import sleepy from '../../assets/sleepy.png'
+import born from '../../assets/born.png'
 
 
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
@@ -24,6 +25,7 @@ export default function Main() {
   const [show, setShow] = useState(true);
   const [holiday, setHoliday] = useState();
   const [hairGrowth, setHairGrowth] = useState('');
+  const [numDays, setNumDays] = useState('');
   // const [horoscope, setHoroscope] = useState('');
 
   useEffect(() => {
@@ -49,6 +51,9 @@ export default function Main() {
     setShow(false);
     setHoliday(await getHolidays(date));
     const allObjectsData = await getMainData(date);
+
+    const totalNumDays = allObjectsData.totalNumOfDays;
+    setNumDays(totalNumDays);
 
     const breathTotal = allObjectsData.newTotalBreaths;
     setBreathsState(breathTotal);
@@ -93,10 +98,22 @@ export default function Main() {
       )}
 
       <section className={Styles.infoSection}>
-        <div>
-          {holiday ? (
+
+      <div>
+          {numDays ? (
+            <>
+            {<img src={born} className={Styles.born}></img>}
             <p aria-label="holiday" data-aos="fade-up">
-              Did you know {`${holiday}`} lands on your birthday!?
+              A lot has happened in the {`${numDays.toLocaleString()}`} days since you were born.
+            </p>
+            </>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Since you were born... 
             </p>
           ) : null}
         </div>
@@ -191,9 +208,41 @@ export default function Main() {
             <>
             {<img src={longHair}></img>}
             <p data-aos="fade-up">
-              Your hair has grown {`${hairGrowth}`} feet! Since you were born.
+              Your hair has grown a grand total of {`${hairGrowth}`} feet since you were born!
             </p>
             </>
+          ) : null}
+        </div>
+
+        <div>
+          {holiday ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Did you know {`${holiday}`} lands on your birthday!?
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              .. A lot has happened since you were born, and you still have a long way to go.
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Who else knows what else will happen in your lifetime!
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          {numDays ? (
+            <p aria-label="holiday" data-aos="fade-up">
+              Thanks for playing Life Stats with us :) 
+            </p>
           ) : null}
         </div>
 

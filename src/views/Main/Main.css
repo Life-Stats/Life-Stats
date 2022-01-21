@@ -176,6 +176,10 @@ form button {
   height: 220px;
 }
 
+.born {
+  margin-top: 400px;
+}
+
 @keyframes blink {
   0%,
   100% {
