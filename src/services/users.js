@@ -10,9 +10,9 @@ export function getSession() {
 };
 
  export async function signInUser() {
-  // eslint-disable-next-line no-unused-vars
+   // Why disable this rule instead of just not destructuring the `session` key?
   
-  const { user, session, error } = await client.auth.signIn({ 
+  const { user, error } = await client.auth.signIn({ 
     provider: 'google'
   }
   );
@@ -21,9 +21,9 @@ export function getSession() {
 };
 
 export async function signInUserGitHub() {
-  // eslint-disable-next-line no-unused-vars
+
   
-  const { user, session, error } = await client.auth.signIn({ 
+  const { user, error } = await client.auth.signIn({ 
     provider: 'github'
   },
   );

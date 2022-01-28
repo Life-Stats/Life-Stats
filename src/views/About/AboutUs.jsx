@@ -15,6 +15,16 @@ export default function AboutUs() {
       </div>
 
       <section className={Styles.section}>
+     {/* A Component here would be good to clean up */}
+     {/* 
+        <About 
+              name='Simon Kaine'
+              avatar={simon}
+              text={text}
+              links={["https://www.linkedin.com/in/simonbishopkaine/", "https://github.com/simonkaine"]}
+        /> 
+     */}
+
         <div className={Styles.left}>
           <p className={Styles.name}>Simon Kaine</p>
           <img src={Simon} />

@@ -40,36 +40,33 @@ export default function Main() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     ticker();
     setShow(false);
     setHoliday(await getHolidays(date));
-    const allObjectsData = await getMainData(date);
+    // Could clean this up with destructuring since you're only setting values
+    // No need to rename the variables coming from main data really
 
-    const totalNumDays = allObjectsData.totalNumOfDays;
-    setNumDays(totalNumDays);
+    const mainData = await getMainData(date);
+    const { 
+      totalNumOfDays, 
+      newTotalBreaths, 
+      totalHeartBeats, 
+      totalYearsAsleep, 
+      totalBlinks, 
+      totalDreamDays, 
+      totalExtinct, 
+      totalHairGrowth 
+    } = mainData
 
-    const breathTotal = allObjectsData.newTotalBreaths;
-    setBreathsState(breathTotal);
-
-    const finalHeartBeats = allObjectsData.totalHeartBeats;
-    setHeartBeats(finalHeartBeats);
-
-    const finalYearsAsleep = allObjectsData.totalYearsAsleep;
-    setYearsAsleep(finalYearsAsleep);
-
-    const finalBlinks = allObjectsData.totalBlinks;
-    setBlinks(finalBlinks);
-
-    const finalDreamDays = allObjectsData.totalDreamDays;
-    setDreamDays(finalDreamDays);
-
-    const finalExtinctRate = allObjectsData.totalExtinct;
-    setGlobalExtinction(finalExtinctRate);
-
-    const finalHairGrowth = allObjectsData.totalHairGrowth;
-    setHairGrowth(finalHairGrowth);
-
+    setNumDays(totalNumOfDays);
+    setBreathsState(newTotalBreaths);
+    setHeartBeats(totalHeartBeats);
+    setYearsAsleep(totalYearsAsleep);
+    setBlinks(totalBlinks);
+    setDreamDays(totalDreamDays);
+    setGlobalExtinction(totalExtinct);
+    setHairGrowth(totalHairGrowth);
   };
 
   return (
@@ -93,13 +90,13 @@ export default function Main() {
 
       <section className={Styles.infoSection}>
 
-      <div>
+        <div>
           {numDays ? (
             <>
-            {<img src={born} className={Styles.born}></img>}
-            <p aria-label="holiday" data-aos="fade-up">
-              A lot has happened in the {`${numDays.toLocaleString()}`} days since you were born.
-            </p>
+              {<img src={born} className={Styles.born}></img>}
+              <p aria-label="holiday" data-aos="fade-up">
+                A lot has happened in the {`${numDays.toLocaleString()}`} days since you were born.
+              </p>
             </>
           ) : null}
         </div>
@@ -107,7 +104,7 @@ export default function Main() {
         <div>
           {numDays ? (
             <p aria-label="holiday" data-aos="fade-up">
-              Since you were born... 
+              Since you were born...
             </p>
           ) : null}
         </div>
@@ -115,21 +112,21 @@ export default function Main() {
         <div className={Styles.divWrapper}>
           {breathsState ? (
             <>
-            <section className={Styles.breathbox}>
-              <div>
-                <div className={Styles.breathface}>
+              <section className={Styles.breathbox}>
+                <div>
+                  <div className={Styles.breathface}>
                     <div className={Styles.eye} />
                     <div className={Styles.eye} />
-                </div>
-                <div className={Styles.breathbottomface}>
+                  </div>
+                  <div className={Styles.breathbottomface}>
                     <div className={Styles.mouth} />
+                  </div>
                 </div>
-              </div>
-            </section>
-  
-            <p data-aos="fade-left" >
-              You've taken {`${breathsState.toLocaleString()}`} breaths!
-            </p>
+              </section>
+
+              <p data-aos="fade-left" >
+                You've taken {`${breathsState.toLocaleString()}`} breaths!
+              </p>
             </>
           ) : null}
         </div>
@@ -138,22 +135,22 @@ export default function Main() {
         <div>
           {heartBeats ? (
             <>
-            <div className={Styles.heart}></div>
-            <p data-aos="fade-right">
-              You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
-            </p>
-          </>
+              <div className={Styles.heart}></div>
+              <p data-aos="fade-right">
+                You're heart has beaten {`${heartBeats.toLocaleString()}`} times!
+              </p>
+            </>
           ) : null}
         </div>
 
         <div>
           {blinks ? (
             <>
-            <div className={Styles.blinks}>
+              <div className={Styles.blinks}>
                 <div className={Styles.face}>
-                <div className={Styles.eye} />
-                <div className={Styles.eye} />
-            </div>
+                  <div className={Styles.eye} />
+                  <div className={Styles.eye} />
+                </div>
               </div>
               <p data-aos="fade-up">
                 You have blinked {`${blinks.toLocaleString()}`} times!
@@ -165,10 +162,10 @@ export default function Main() {
         <div>
           {yearsAsleep ? (
             <>
-            {<img src={sleepy} className={Styles.asleep}></img>}
-            <p data-aos="fade-up">
-              {`${yearsAsleep}`} years of your life has been spent asleep!
-            </p>
+              {<img src={sleepy} className={Styles.asleep}></img>}
+              <p data-aos="fade-up">
+                {`${yearsAsleep}`} years of your life has been spent asleep!
+              </p>
             </>
           ) : null}
         </div>
@@ -176,11 +173,11 @@ export default function Main() {
         <div>
           {dreamDays ? (
             <>
-            {<img src={dreamingPic} className={Styles.dream}></img>}
-            <p data-aos="fade-up">
-              {`${dreamDays.toLocaleString()}`} days of your life has been spent
-              just dreaming!
-            </p>
+              {<img src={dreamingPic} className={Styles.dream}></img>}
+              <p data-aos="fade-up">
+                {`${dreamDays.toLocaleString()}`} days of your life has been spent
+                just dreaming!
+              </p>
             </>
           ) : null}
         </div>
@@ -188,11 +185,11 @@ export default function Main() {
         <div>
           {globalExtinction ? (
             <>
-            {<img src={tas} className={Styles.extinct}></img>}
-            <p data-aos="fade-up">
-              Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
-              species of animal life have since gone extinct..
-            </p>
+              {<img src={tas} className={Styles.extinct}></img>}
+              <p data-aos="fade-up">
+                Some estimated up to {`${globalExtinction.toLocaleString()}`}{' '}
+                species of animal life have since gone extinct..
+              </p>
             </>
           ) : null}
         </div>
@@ -200,10 +197,10 @@ export default function Main() {
         <div>
           {hairGrowth ? (
             <>
-            {<img src={longHair} className={Styles.hair}></img>}
-            <p data-aos="fade-up">
-              Your hair has grown a grand total of {`${hairGrowth}`} feet since you were born!
-            </p>
+              {<img src={longHair} className={Styles.hair}></img>}
+              <p data-aos="fade-up">
+                Your hair has grown a grand total of {`${hairGrowth}`} feet since you were born!
+              </p>
             </>
           ) : null}
         </div>
@@ -235,7 +232,7 @@ export default function Main() {
         <div>
           {numDays ? (
             <p aria-label="holiday" data-aos="fade-up">
-              Thanks for playing Life Stats with us :) 
+              Thanks for playing Life Stats with us :)
             </p>
           ) : null}
         </div>

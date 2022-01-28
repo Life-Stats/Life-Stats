@@ -5,9 +5,11 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const currentUser = getUser();
-  const [user, setUser] = useState(
-    currentUser ? { id: currentUser.id, email: currentUser.email } : {}
-  );
+  // using the lazy initializer method would be good here
+  const [user, setUser] = useState(() => {
+    return currentUser ? { id: currentUser.id, email: currentUser.email } : {}
+  }
+);
 
   const value = useMemo(() => ({ user, setUser }), [user]);
 
@@ -24,4 +26,5 @@ const useUser = () => {
   return context;
 };
 
-export { UserContext, UserProvider, useUser };
+// Dont need to export the context since we use it in the useUser() hook
+export { UserProvider, useUser };
