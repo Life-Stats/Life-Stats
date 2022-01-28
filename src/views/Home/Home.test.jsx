@@ -34,7 +34,8 @@ it('should render the Home view and then redirect to the Main view when clicking
 
   userEvent.click(button);
 
-  return await waitFor(() => {
+  // we don't need to await when we use a return, it will do it for us
+  return waitFor(() => {
     screen.findByText('Please sign in with Google or GitHub!');
   });
 });
