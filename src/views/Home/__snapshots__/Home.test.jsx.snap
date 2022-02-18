@@ -11,29 +11,16 @@ exports[`should render the Home view and then redirect to the Main view when cli
       Life Stats
     </h1>
   </div>
-  <div
-    class="div"
+  <section
+    aria-label="loading"
+    class="loading"
+    data-aos="fade-in"
   >
-    <section
-      class="section"
-    >
-      <p
-        class="desc"
-      >
-        Welcome! 
-        <br />
-         We invite you to sign in below before you enjoy the experience.
-      </p>
-      <div
-        class="btnDiv"
-      >
-        <button
-          class="signin"
-        >
-          Please sign in.
-        </button>
-      </div>
-    </section>
-  </div>
+    <img
+      class="icon"
+      src="https://freesvg.org/img/1539121879.png"
+    />
+    Loading...
+  </section>
 </div>
 `;

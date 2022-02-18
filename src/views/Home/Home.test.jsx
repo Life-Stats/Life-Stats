@@ -27,14 +27,14 @@ it('should render the Home view and then redirect to the Main view when clicking
   );
 
   expect(container).toMatchSnapshot();
-
-  const button = screen.getByRole('button', { name: 'PLAY' });
-
-  expect(button).toBeInTheDocument();
-
-  userEvent.click(button);
+  screen.getByLabelText(/loading/i);
 
   return await waitFor(() => {
+    const button = screen.getByRole('button', { name: 'PLAY' });
+
+    expect(button).toBeInTheDocument();
+
+    userEvent.click(button);
     screen.findByText('Please sign in with Google or GitHub!');
   });
 });

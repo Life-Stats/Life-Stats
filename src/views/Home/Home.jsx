@@ -32,7 +32,11 @@ export default function Home() {
       </div>
 
       {loading && (
-        <section data-aos="fade-in" className={Styles.loading}>
+        <section
+          data-aos="fade-in"
+          aria-label="loading"
+          className={Styles.loading}
+        >
           <img
             className={Styles.icon}
             src="https://freesvg.org/img/1539121879.png"

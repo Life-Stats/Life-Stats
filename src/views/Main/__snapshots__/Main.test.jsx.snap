@@ -27,24 +27,5 @@ exports[`when clicked the button does something 1`] = `
       </button>
     </form>
   </div>
-  <section
-    class="infoSection"
-  >
-    <div />
-    <div />
-    <div
-      class="divWrapper"
-    />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-  </section>
 </div>
 `;

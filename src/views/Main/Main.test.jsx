@@ -23,6 +23,6 @@ it('when clicked the button does something', async () => {
   });
 
   return waitFor(() => {
-    screen.getByLabelText('holiday');
+    screen.getByLabelText(/loading/i);
   });
 });

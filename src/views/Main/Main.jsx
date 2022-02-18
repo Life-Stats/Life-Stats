@@ -95,7 +95,11 @@ export default function Main() {
         </div>
       )}
       {!show && loading && (
-        <section data-aos="fade-in" className={Styles.loading}>
+        <section
+          aria-label="loading"
+          data-aos="fade-in"
+          className={Styles.loading}
+        >
           <img
             className={Styles.icon}
             src="https://freesvg.org/img/1539121879.png"
