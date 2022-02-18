@@ -20,7 +20,9 @@ exports[`should render the Home view and then redirect to the Main view when cli
       <p
         class="desc"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Welcome! 
+        <br />
+         We invite you to sign in below before you enjoy the experience.
       </p>
       <div
         class="btnDiv"
@@ -28,7 +30,7 @@ exports[`should render the Home view and then redirect to the Main view when cli
         <button
           class="signin"
         >
-          PLAY
+          Please sign in.
         </button>
       </div>
     </section>

@@ -5,6 +5,7 @@ const stylesHeader = {
     height: '30px',
     right: '36px',
     top: '20px',
+    bottom: '10px',
   },
   bmBurgerBars: {
     background: '#fef9ef',

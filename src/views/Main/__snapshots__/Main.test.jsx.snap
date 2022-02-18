@@ -11,7 +11,7 @@ exports[`when clicked the button does something 1`] = `
       <label
         for="start"
       >
-        Enter your Birthday: 
+        Enter your Birthday 
       </label>
       <input
         id="start"
@@ -30,6 +30,13 @@ exports[`when clicked the button does something 1`] = `
   <section
     class="infoSection"
   >
+    <div />
+    <div />
+    <div
+      class="divWrapper"
+    />
+    <div />
+    <div />
     <div />
     <div />
     <div />
