@@ -9,6 +9,9 @@
 - Peter Montano-- https://www.linkedin.com/in/petermontano/
 - Dylan Greathouse-- https://www.linkedin.com/in/dylan-greathouse/
 
+# DESCRIPTION
+ Life Stats turns your life into a fascinating sequence of facts and numbers. Enter in your birthday and enjoy the reflective and informational journey that awaits you! Now, let's see what's happened since you were born, we've calculated; breaths, blinks, heartbeats, years asleep, dream days, extinction estimates, holidays, hair growth and more! 
+
 # TECH STACK 
 
 | FRAMEWORKS | LIBRARIES             | LANGUAGES  | TESTING    | DATABASES  | TOOLS          |
