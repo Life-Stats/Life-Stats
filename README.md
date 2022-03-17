@@ -34,7 +34,7 @@
 -  <a href="https://www.pngall.com/sleep-png/download/27825" target="_blank" alt="Transparent image of person sleeping in bed">Sleep PNG Image HD - www.pngall.com</a>
 
 ## API
--- This API was used to take in three string queries based on user birthday entry data and returns an object holiday matching query entry.
+-- This API was used to take in three string queries based on user birthday entry data and returns a holiday matching query entry.
 - https://calendarific.com/
 - https://calendarific.com/api/v2/holidays?api_key=5569725de1b2efd0a970fb8ea04cca422a8f6af2&country=US&year=${year}&month=${mon}&day=${day}
 
