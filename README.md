@@ -1,7 +1,7 @@
 # LIFE STATS 
 # https://pedantic-pasteur-453987.netlify.app
 
-![Life Stats logo of tree](../../public/Life_Stats_Logo.png)
+![Life Stats logo of tree](./../public/Life_Stats_Logo.png)
 
 ## DEV TEAM:
 - Simon Kaine-- https://www.linkedin.com/in/simonbishopkaine/
@@ -23,6 +23,7 @@
 |            |                       |            |            |            | VS Code        |
 |            |                       |            |            |            | GitHub         |
 
+
 # REFERENCES
 ## icon images
 -  <a href="https://freesvg.org/1539121879" target="_blank" alt="Black and white image of tree">Tree Icon Derived From An Image On Pixabay - www.freesvg.org</a>
@@ -33,7 +34,7 @@
 -  <a href="https://www.pngall.com/sleep-png/download/27825" target="_blank" alt="Transparent image of person sleeping in bed">Sleep PNG Image HD - www.pngall.com</a>
 
 ## API
--- This API was used to take in three string queries based on user birthday entry data and returns a holiday matching query entry.
+-- This API was used to take in three string queries based on user birthday entry data and returns an object holiday matching query entry.
 - https://calendarific.com/
 - https://calendarific.com/api/v2/holidays?api_key=5569725de1b2efd0a970fb8ea04cca422a8f6af2&country=US&year=${year}&month=${mon}&day=${day}
 
@@ -41,7 +42,7 @@
 ## Miro Board
 - Miro Board: https://miro.com/app/board/uXjVOXR1wUU=/?invite_link_id=36893782295
 
-![Blueprint drawing for frontend design and layout Architecture](../../public/frontend_lifeStats.png)
+![Blueprint drawing for frontend design and layout Architecture](./../public/frontend_lifeStats.png)
 
-![Full view of Miro Board blueprint drawings](../../public/miro_planning.png)
+![Full view of Miro Board blueprint drawings](./../public/miro_planning.png)
 
