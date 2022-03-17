@@ -1,7 +1,7 @@
 # LIFE STATS 
 # https://pedantic-pasteur-453987.netlify.app
 
-![Life Stats logo of tree](../public/Life_Stats_Logo.png)
+![Life Stats logo of tree](./public/Life_Stats_Logo.png)
 
 ## DEV TEAM:
 - Simon Kaine-- https://www.linkedin.com/in/simonbishopkaine/
@@ -42,7 +42,7 @@
 ## Miro Board
 - Miro Board: https://miro.com/app/board/uXjVOXR1wUU=/?invite_link_id=36893782295
 
-![Blueprint drawing for frontend design and layout Architecture](../public/frontend_lifeStats.png)
+![Blueprint drawing for frontend design and layout Architecture](./public/frontend_lifeStats.png)
 
-![Full view of Miro Board blueprint drawings](../public/miro_planning.png)
+![Full view of Miro Board blueprint drawings](./public/miro_planning.png)
 
