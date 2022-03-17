@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Home view and then redirect to the Main view when clicking the play button  1`] = `
+<div>
+  <div
+    class="titleDiv"
+  >
+    <h1
+      class="title"
+    >
+      Life Stats
+    </h1>
+  </div>
+  <section
+    aria-label="loading"
+    class="loading"
+    data-aos="fade-in"
+  >
+    <img
+      class="icon"
+      src="https://freesvg.org/img/1539121879.png"
+    />
+    Loading...
+  </section>
+</div>
+`;

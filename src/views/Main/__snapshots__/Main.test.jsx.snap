@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when clicked the button does something 1`] = `
+<div>
+  <div
+    class="formSubmit"
+  >
+    <form
+      class="Main"
+    >
+      <label
+        for="start"
+      >
+        Enter your Birthday 
+      </label>
+      <input
+        id="start"
+        type="date"
+        value=""
+      />
+      <button
+        aria-label="button"
+        type="submit"
+        value="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+`;

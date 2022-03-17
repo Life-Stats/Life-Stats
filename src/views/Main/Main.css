@@ -1,0 +1,256 @@
+.formSubmit {
+  text-align: center;
+}
+
+.infoSection {
+  text-align: center;
+}
+
+.infoSection p {
+  display: flex;
+  justify-content: center;
+  margin: 400px 0 800px 0;
+  font-size: 2em;
+}
+
+.divSize {
+  border: 1px black solid;
+}
+
+form {
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 200px;
+  padding: 20px;
+  font-size: 2em;
+  width: 450px;
+  border: 4px rgba(254, 109, 115) solid;
+  box-shadow: black 1px 1px 6px 1px;
+}
+
+form label {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+form button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 400px;
+  font-size: xx-large;
+  width: 100%;
+  height: 100px;
+  color: rgba(254, 109, 115);
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  animation: growIcon 3s infinite;
+}
+.icon {
+  border: none;
+  box-shadow: none;
+}
+
+.pTagAnimations {
+  border: 2px solid black;
+  height: 200px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+.face {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+
+.blinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.breathface {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+.breathbottomface {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  height: 50px;
+  padding: 30px;
+  background: tomato;
+  transition: 0.3s ease-in-out;
+}
+.breathface:hover {
+  background: rgb(34, 207, 238);
+}
+.eye {
+  background: white;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 0 5px;
+  border-radius: 50%;
+  transform-origin: 50%;
+  animation: blink 3s infinite;
+}
+.mouth {
+  background: rgb(53, 43, 43);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 2%;
+  transform-origin: 50%;
+  animation: breaths 2s infinite;
+}
+
+.breathbox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 400px;
+}
+
+.heart {
+  background-color: red;
+  display: inline-block;
+  height: 80px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 80px;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  background-color: red;
+  border-radius: 50%;
+  height: 80px;
+  position: absolute;
+  width: 80px;
+}
+
+.heart:before {
+  top: -33px;
+  left: 0;
+  animation: heartbeats 1s infinite;
+}
+
+.heart:after {
+  left: 33px;
+  top: 0;
+  animation: heartbeats 1s infinite;
+}
+
+.dream {
+  width: 400px;
+  height: 200px;
+  border: none;
+  box-shadow: none;
+}
+
+.extinct {
+  width: 400px;
+  border: none;
+  box-shadow: none;
+}
+
+.asleep {
+  width: 250px;
+  height: 220px;
+  border: none;
+  box-shadow: none;
+}
+
+.born {
+  margin-top: 400px;
+  border: none;
+  box-shadow: none;
+}
+
+.hair {
+  border: none;
+  box-shadow: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    transform: scale(1, 0.05);
+  }
+  5%,
+  95% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes breaths {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  75% {
+    transform: scale(2, 2);
+  }
+  90% {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+@keyframes heartbeats {
+  25% {
+    transform: scale(1.01, 1.01);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+}
+@keyframes growIcon {
+  25% {
+    transform: scale(1.01, 1.01);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+}

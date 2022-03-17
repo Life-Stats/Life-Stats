@@ -1,0 +1,80 @@
+.header {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  background-color: rgba(254, 109, 115);
+  border-bottom-left-radius: 55%;
+  padding-bottom: 15px;
+  margin-bottom: 10rem;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: row;
+}
+
+.hamburger a {
+  text-decoration: none;
+  color: rgb(254, 249, 239);
+  font-size: 1.1em;
+}
+
+.hamburger div {
+  margin: 20px 0 0 0;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.signinTitle {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav {
+  background-color: rgba(254, 109, 114, 0.289);
+  height: 80px;
+  width: 100%;
+}
+
+label.logo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+.signin {
+  font-size: 1rem;
+}
+
+.headerImage {
+  height: 3rem;
+  width: 3rem;
+  border: none;
+  box-shadow: none;
+}
+
+.imgSection img{
+  padding-top: 5px;
+  /* height: auto; */
+}
+
+.hamburger {
+  font-size: 2em;
+}

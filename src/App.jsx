@@ -1,30 +1,36 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Header from './views/Header/Header';
 import Home from './views/Home/Home';
-import Login from './views/Login/Login';
-import Register from './views/Register/Register';
+import Auth from './views/Auth/Auth';
 import AboutUs from './views/About/AboutUs';
+import Main from './views/Main/Main';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
-  
+    <>
+  <UserProvider>
    <Router>
+      <Header />
    <Switch>
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route exact path='/login'>
-        <Login />
+      <Route path='/login'>
+        <Auth />
       </Route>
-      <Route exact path='/about'>
+      <PrivateRoute path='/main'>
+        <Main />
+      </PrivateRoute>
+      <Route path='/about'>
         <AboutUs/>
-      </Route>
-      <Route exact path='/signup'>
-        <Register />
       </Route>
    </Switch>
    </Router>
-
+   </UserProvider>
+   </>
   )
 }
 

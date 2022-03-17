@@ -1,0 +1,57 @@
+.authWelcome {
+    text-align: center;
+    font-size: 3em;
+}
+
+.authSect p {
+    font-size: 30px;
+}
+
+.btnDiv {
+    background-color: rgba(254, 249, 239);
+    border: 5px solid rgb(254, 109, 115);
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 30vh;
+    padding: 5%;
+    margin: 5% 18%
+}
+
+.imgDiv {
+    background-color: white;
+    padding: 0px;
+}
+
+.btnSect {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.btnP {
+    margin-left: 4px;
+    padding-right: 5px;
+}
+
+.authBtn {
+    background-color: rgb(236, 164, 167);
+    border-radius: 3%;
+    padding: 0px;
+    margin: 0 0 10px 0;
+    box-shadow: 1px 2px grey;
+}
+
+.googleBtn {
+    padding: 2px;
+    background-color: white;
+    margin-top: 5px;
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    box-shadow: none;
+}
+
