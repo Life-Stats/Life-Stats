@@ -6,6 +6,8 @@ import { UserProvider } from '../../context/UserContext';
 import Home from './Home';
 import Main from '../Main/Main';
 import Auth from '../Auth/Auth';
+// need to split up the test into the different variations based on if  current user is found
+// need to mock api calls and props
 
 it('should render the Home view and then redirect to the Main view when clicking the play button ', async () => {
   const { container } = render(
